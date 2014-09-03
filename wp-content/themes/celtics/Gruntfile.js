@@ -48,7 +48,16 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-
+		compass : {
+			dev : {
+				options : {
+					sassDir : ['assets/css/sass'],
+					cssDir : ['assets/css'],
+					imagesDir : ['images'],
+					environment : 'development'
+				}
+			}
+		},
 		cssmin : {
 			options : {
 				banner : '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' + ' * <%= pkg.homepage %>\n' + ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' + ' * Licensed GPLv2+' + ' */\n'
@@ -64,12 +73,9 @@ module.exports = function(grunt) {
 			}
 		},
 		watch : {
-			sass : {
+			compass : {
 				files : ['assets/css/sass/**/*.scss', 'bootstrap/assets/css/sass/**/*.scss'],
-				tasks : ['sass', 'cssmin'],
-				options : {
-					livereload : true,
-				},
+				tasks : ['compass:dev', 'cssmin'],
 			},
 
 			scripts : {
@@ -84,7 +90,7 @@ module.exports = function(grunt) {
 
 	// Default task.
 
-	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin']);
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'compass', 'cssmin']);
 
 	grunt.util.linefeed = '\n';
-}; 
+};

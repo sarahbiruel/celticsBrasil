@@ -6,6 +6,12 @@
  * Licensed under the GPLv2+ license.
  */
 
+// Add Compass
+@import 'compass';
 
 // Core Bootstrap
-@import "bootstrap/assets/css/sass/bootstrap";
+@import '../../../bootstrap/assets/css/sass/bootstrap';
+
+// Sprites
+@import 'sprites.scss';
+
