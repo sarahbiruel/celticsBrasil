@@ -1,0 +1,25 @@
+body{
+  background: url(../../images/home-top-bg.jpg) no-repeat center 50px;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  @include reset-list-style;
+}
+.title{
+  color: $default-type-color;
+  font: {
+    size: $titulo-default-seze;
+    weight: $font-semi-bold;
+  }
+  margin: 0;
+  a{
+    color: $default-type-color;
+  } 
+}
+.date-time{  
+  color: $default-type-color;
+}
+.date,.time{
+  display: inline;
+}

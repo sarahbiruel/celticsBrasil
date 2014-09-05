@@ -1416,7 +1416,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
+  color: white;
   background-color: white;
 }
 
@@ -2069,7 +2069,7 @@ pre code {
 @media (min-width: 1200px) {
   /* line 10, ../../bootstrap/assets/css/sass/_grid.scss */
   .container {
-    width: 1170px;
+    width: 1080px;
   }
 }
 
@@ -3907,7 +3907,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -6065,7 +6065,7 @@ a.badge:hover, a.badge:focus {
 /* line 27, ../../bootstrap/assets/css/sass/_thumbnails.scss */
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  color: white;
 }
 
 /* line 36, ../../bootstrap/assets/css/sass/_thumbnails.scss */
@@ -8041,22 +8041,429 @@ button.close {
     display: none !important;
   }
 }
-/* line 58, sprite/*.png */
-.sprite-sprite, .sprite-facebook, .sprite-rss, .sprite-twitter {
-  background: url('/images/sprite-s111f7602bc.png') no-repeat;
+/* line 1, sass/_default.scss */
+body {
+  background: url(../../images/home-top-bg.jpg) no-repeat center 50px;
+}
+
+/* line 4, sass/_default.scss */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 9, sass/_default.scss */
+.title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+/* line 16, sass/_default.scss */
+.title a {
+  color: white;
+}
+
+/* line 20, sass/_default.scss */
+.date-time {
+  color: white;
+}
+
+/* line 23, sass/_default.scss */
+.date, .time {
+  display: inline;
+}
+
+/* line 114, sprite/*.png */
+.sprite-sprite, .sprite-celtics-brasil-logo, .sprite-facebook, .sprite-feature-capition-shadow, .sprite-featured-arrow-left, .sprite-featured-arrow-right, .sprite-match-timer-shadow, .sprite-menu, .sprite-rss, .sprite-search, .sprite-twitter {
+  background: url('../../images/sprite-s78c926ff9d.png') no-repeat;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-celtics-brasil-logo {
+  background-position: 0 -46px;
+  height: 150px;
+  width: 167px;
 }
 
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-facebook {
-  background-position: 0 -64px;
+  background-position: -32px -14px;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-feature-capition-shadow {
+  background-position: 0 0;
+  height: 14px;
+  width: 259px;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-featured-arrow-left {
+  background-position: -205px -46px;
+  height: 31px;
+  width: 18px;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-featured-arrow-right {
+  background-position: -223px -46px;
+  height: 31px;
+  width: 18px;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-match-timer-shadow {
+  background-position: -241px -46px;
+  height: 110px;
+  width: 10px;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-menu {
+  background-position: -167px -46px;
+  height: 19px;
+  width: 19px;
 }
 
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-rss {
-  background-position: 0 0;
+  background-position: -64px -14px;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.sprite-search {
+  background-position: -186px -46px;
+  height: 19px;
+  width: 19px;
 }
 
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-twitter {
-  background-position: 0 -32px;
+  background-position: 0 -14px;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 7, sass/_sprites.scss */
+.icon {
+  display: inline-block;
+  vertical-align: sub;
+}
+
+/* line 1, sass/_type.scss */
+body {
+  font-family: "Exo", sans-serif;
+}
+
+/* line 6, sass/_type.scss */
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+/* line 1, sass/_header.scss */
+.header-bar {
+  background: #003521;
+  border-bottom: 1px solid #006d44;
+  height: 50px;
+}
+/* line 5, sass/_header.scss */
+.header-bar p, .header-bar span {
+  line-height: 50px;
+}
+/* line 8, sass/_header.scss */
+.header-bar input {
+  display: none;
+}
+/* line 11, sass/_header.scss */
+.header-bar .icon {
+  margin: 0 15px;
+}
+
+/* line 16, sass/_header.scss */
+.header-search-form span {
+  text-transform: uppercase;
+}
+
+/* line 20, sass/_header.scss */
+.header-logo {
+  left: 40px;
+  position: absolute;
+  top: -60px;
+}
+
+/* line 25, sass/_header.scss */
+.header-menu {
+  margin: 30px 0;
+}
+/* line 27, sass/_header.scss */
+.header-menu span {
+  font-family: "Exo", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+/* line 34, sass/_header.scss */
+.header-menu .icon-padding {
+  background-color: #59a618;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px;
+  position: relative;
+}
+/* line 41, sass/_header.scss */
+.header-menu .icon-padding:before {
+  background: #003521;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 1px;
+  width: 100%;
+  z-index: -1;
+}
+
+/* line 1, sass/_home.scss */
+#home-slide {
+  height: 450px;
+  margin-top: 10px;
+  position: relative;
+}
+
+/* line 6, sass/_home.scss */
+.home-social {
+  font-weight: 600;
+  margin-top: -25px;
+  position: relative;
+  z-index: 100;
+}
+/* line 11, sass/_home.scss */
+.home-social a:hover {
+  text-decoration: none;
+}
+/* line 14, sass/_home.scss */
+.home-social .alias {
+  color: #59a618;
+  font-size: 11px;
+}
+/* line 18, sass/_home.scss */
+.home-social .number {
+  color: #003521;
+  font-size: 20px;
+}
+
+/* line 25, sass/_home.scss */
+.news {
+  margin-top: -35px;
+}
+/* line 27, sass/_home.scss */
+.news h2.title {
+  border-bottom: 1px solid #CDD1D0;
+  color: #0C6637;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 20px 0;
+}
+/* line 35, sass/_home.scss */
+.news h2.title span {
+  padding: 20px 0;
+  position: relative;
+}
+/* line 38, sass/_home.scss */
+.news h2.title span:before {
+  border: 3px solid #0C6637;
+  bottom: 2px;
+  content: '';
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+/* line 48, sass/_home.scss */
+.news ul {
+  margin-top: 35px;
+}
+
+/* line 1, sass/_next-match.scss */
+#next-match {
+  position: relative;
+  z-index: 100;
+}
+
+/* line 5, sass/_next-match.scss */
+.match-container {
+  background: #59a618;
+  display: inline-block;
+  font-weight: 600;
+  left: -100%;
+  line-height: 1.2;
+  margin-top: -50px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+/* line 15, sass/_next-match.scss */
+.next-match {
+  background: #4b8b14;
+  float: right;
+  font-size: 12px;
+  position: relative;
+}
+/* line 20, sass/_next-match.scss */
+.next-match header {
+  float: left;
+  padding: 20px;
+}
+/* line 24, sass/_next-match.scss */
+.next-match .info {
+  margin-top: 10px;
+}
+/* line 27, sass/_next-match.scss */
+.next-match .teams-logo {
+  float: left;
+  margin: 25px 0 0;
+}
+/* line 30, sass/_next-match.scss */
+.next-match .teams-logo li {
+  background: #417912;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 10px;
+  text-align: center;
+  width: 60px;
+}
+
+/* line 42, sass/_next-match.scss */
+.match-timer {
+  float: right;
+  position: relative;
+}
+/* line 3, sass/mixins/_shadow.scss */
+.match-timer:before {
+  -webkit-box-shadow: 0 0 20px #333 inset;
+  box-shadow: 0 0 20px #333 inset;
+  content: '';
+  height: 92%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 4%;
+  width: 100%;
+  z-index: -1;
+}
+/* line 46, sass/_next-match.scss */
+.match-timer div {
+  display: inline-block;
+}
+/* line 49, sass/_next-match.scss */
+.match-timer .dozens, .match-timer .units {
+  background: #4b8b14;
+  font-size: 44px;
+  height: 55px;
+  line-height: 55px;
+  margin-left: 3px;
+  width: 40px;
+}
+/* line 57, sass/_next-match.scss */
+.match-timer span {
+  display: block;
+  margin-top: 10px;
+}
+
+/* line 62, sass/_next-match.scss */
+.match-timer-days, .match-timer-hours, .match-timer-minutes, .match-timer-seconds {
+  margin: 15px 10px;
+  text-align: center;
+}
+
+/* line 1, sass/_featured.scss */
+.big-featured {
+  height: 100%;
+  position: relative;
+}
+/* line 3, sass/mixins/_shadow.scss */
+.big-featured:before {
+  -webkit-box-shadow: 0 0 20px #333;
+  box-shadow: 0 0 20px #333;
+  content: '';
+  height: 98%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 1%;
+  width: 100%;
+  z-index: -1;
+}
+/* line 5, sass/_featured.scss */
+.big-featured li {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 11, sass/_featured.scss */
+.featured-capition {
+  background-color: #59a618;
+  bottom: 140px;
+  width: 320px;
+  padding: 24px;
+  position: absolute;
+  right: -15px;
+}
+/* line 18, sass/_featured.scss */
+.featured-capition .title {
+  font-size: 20px;
+}
+
+/* line 22, sass/_featured.scss */
+.featured-nav {
+  bottom: 80px;
+  position: absolute;
+  right: -15px;
+}
+/* line 26, sass/_featured.scss */
+.featured-nav .next, .featured-nav .prev {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  width: 60px;
+}
+/* line 32, sass/_featured.scss */
+.featured-nav .next i, .featured-nav .prev i {
+  vertical-align: middle;
+}
+/* line 36, sass/_featured.scss */
+.featured-nav .next {
+  background: #59a618;
+}
+/* line 39, sass/_featured.scss */
+.featured-nav .prev {
+  background: #003521;
+}
+
+/* line 43, sass/_featured.scss */
+.sprite-feature-capition-shadow {
+  position: absolute;
+  bottom: 126px;
+  right: 39px;
 }

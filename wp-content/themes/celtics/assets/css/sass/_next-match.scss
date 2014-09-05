@@ -1,0 +1,65 @@
+#next-match{
+  position: relative;
+  z-index: 100;
+}
+.match-container{
+  background: $primary-color;
+  display: inline-block;
+  font-weight: $font-semi-bold;
+  left: -100%;
+  line-height: 1.2;
+  margin-top: $match-top;
+  position: relative;
+  text-transform: uppercase;
+}
+.next-match{  
+  background: darken($primary-color,6%);
+  float: right;
+  font-size: 12px;
+  position: relative;
+  header{    
+    float: left;
+    padding: 20px;
+  }
+  .info{
+    margin-top: 10px;
+  }
+  .teams-logo{
+    float: left;
+    margin: 25px 0 0; 
+    li{
+      background: darken($primary-color,10%);
+      float: left;
+      height: 60px;
+      line-height: 60px;
+      margin-right: 10px;
+      text-align: center;
+      width: 60px;
+    }
+  }
+}
+
+.match-timer {
+  @include shadow('vertical','0 0 20px #333 inset', 92%, 0.8);
+  float: right;
+  position: relative;
+  div{
+    display: inline-block;
+  }
+  .dozens, .units{
+    background: darken($primary-color,6%);
+    font-size: $match-timer-font-size;
+    height: $match-timer-height;
+    line-height: $match-timer-height;
+    margin-left: 3px;
+    width: $match-timer-width;
+  }
+  span{
+    display: block;
+    margin-top: $match-timer-margin*2;
+  }
+}
+.match-timer-days, .match-timer-hours, .match-timer-minutes, .match-timer-seconds{
+  margin: ($match-timer-margin*3) ($match-timer-margin*2);
+  text-align: center;
+}

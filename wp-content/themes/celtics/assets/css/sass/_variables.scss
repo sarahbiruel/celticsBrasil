@@ -1,0 +1,46 @@
+// Colors
+$primary-color: #59A618;
+$secondary-color: #003521;
+$light-color: #fff;
+
+// Type
+$default-type-color: $light-color;
+$default-font: 'Exo', sans-serif;
+$font-weight-default: 400;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+$titulo-default-seze: 18px;
+
+// Header
+$header-bar-height: 50px;
+$header-bar-border: 1px solid lighten($secondary-color, 11);
+$header-bar-margin: 15px;
+$header-logo-position-top: -($header-bar-height + 10px);
+$header-logo-position-left: $header-bar-height - 10px;
+$menu-vertical-margin: 30px;
+$menu-font-size: 25px;
+$menu-icon-space: 10px;
+$menu-icon-bg-color: $primary-color;
+
+// Home -> Slide
+$home-slide-margin-top: 10px;
+$home-slide-height: 450px;
+
+// Featured
+$featured-position-right: -15px;
+$featured-position-bottom: 80px;
+$featured-capition-max-width: 320px;
+$featured-capition-padding: 24px;
+$featured-title-size: 20px;
+$featured-nav-size: 60px;
+
+// Next Match
+$match-top: -50px;
+$match-timer-font-size: 44px;
+$match-timer-height: 55px;
+$match-timer-width: 40px;
+$match-timer-margin: 5px;
+
+// Bootstrap reset
+$text-color: $light-color;

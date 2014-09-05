@@ -10,7 +10,23 @@
 	'use strict';
 
 	$(document).ready(function() {
+		function showMatchTimer() {
+			var winWidth = $(window).width();
+			var containerPosition = $('.container').offset().left + 15; //15 = padding
+			var matchWidth = $('.match-timer').outerWidth() + $('.next-match').outerWidth();
+			var newWidth = containerPosition + matchWidth;
+			$('.match-container').width(newWidth).animate({
+				'left' : 0
+			}, 500);
+		}
 
+
+		$(window).resize(function() {
+			showMatchTimer();
+		});
+		$(window).load(function() {
+			$(window).resize();
+		});
 	});
 
-} )(this); 
+} )(this);

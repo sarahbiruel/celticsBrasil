@@ -1,0 +1,15 @@
+@mixin shadow($side,$box-shadow: 0 0 20px #333, $size: 96%, $opacity: 0.8){
+  @if($side == 'vertical'){
+    &:before{
+      @include box-shadow(unquote($box-shadow));
+      content: '';
+      height: $size;
+      left: 0;
+      opacity: $opacity;
+      position: absolute;
+      top: (100 - $size)/2;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.big-featured{
+  height: 100%;
+  position: relative;  
+  @include shadow('vertical','0 0 20px #333', 98%, 0.8);
+  li{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.featured-capition{
+  background-color: $primary-color;
+  bottom: $featured-position-bottom + $featured-nav-size;
+  width: $featured-capition-max-width;
+  padding: $featured-capition-padding;
+  position: absolute;
+  right: $featured-position-right;
+  .title{
+    font-size: $featured-title-size;
+  }
+}
+.featured-nav{
+  bottom: $featured-position-bottom;
+  position: absolute;
+  right: $featured-position-right;
+  .next,.prev{
+    float: left;
+    height: $featured-nav-size;
+    line-height: $featured-nav-size;
+    text-align: center;
+    width: $featured-nav-size;
+    i{
+      vertical-align: middle;
+    }
+  }
+  .next{    
+    background: $primary-color;
+  }
+  .prev{
+    background: $secondary-color;
+  }
+}
+.sprite-feature-capition-shadow{
+  position: absolute;
+  bottom: 126px;
+  right: 39px;
+}

@@ -1,3 +1,10 @@
 // General sprites
+$sprite-layout: smart;
+$sprite-sprite-dimensions: true;
 @import 'sprite/*.png';
 @include all-sprite-sprites;
+
+.icon{
+  display: inline-block;
+  vertical-align: sub;
+}

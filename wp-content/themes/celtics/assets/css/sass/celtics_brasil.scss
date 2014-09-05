@@ -9,9 +9,32 @@
 // Add Compass
 @import 'compass';
 
+// Variables
+@import 'variables';
+
 // Core Bootstrap
 @import '../../../bootstrap/assets/css/sass/bootstrap';
 
-// Sprites
-@import 'sprites.scss';
+// Default styles & resets
+@import 'default';
 
+// Mixins
+@import 'mixins';
+
+// Sprites
+@import 'sprites';
+
+// Typography
+@import 'type';
+
+// Header 
+@import 'header';
+
+// Home
+@import 'home';
+
+// Match Timer
+@import 'next-match';
+
+// Featured 
+@import 'featured';

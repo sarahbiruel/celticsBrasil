@@ -53,8 +53,7 @@ module.exports = function(grunt) {
 				options : {
 					sassDir : ['assets/css/sass'],
 					cssDir : ['assets/css'],
-					imagesDir : ['images'],
-					environment : 'development'
+					imagesDir : ['images']
 				}
 			}
 		},
@@ -76,13 +75,16 @@ module.exports = function(grunt) {
 			compass : {
 				files : ['assets/css/sass/**/*.scss', 'bootstrap/assets/css/sass/**/*.scss'],
 				tasks : ['compass:dev', 'cssmin'],
+				options : {
+					interrupt : true,
+				}
 			},
 
 			scripts : {
 				files : ['assets/js/src/**/*.js'],
 				tasks : ['jshint', 'concat', 'uglify'],
 				options : {
-					livereload : true,
+					interrupt : true,
 				},
 			}
 		}
