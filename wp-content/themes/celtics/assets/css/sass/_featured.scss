@@ -7,22 +7,30 @@
     top: 0;
     left: 0;
   }
+  a:hover{
+    text-decoration: none;
+  }
 }
 .featured-capition{
   background-color: $primary-color;
-  bottom: $featured-position-bottom + $featured-nav-size;
-  width: $featured-capition-max-width;
-  padding: $featured-capition-padding;
-  position: absolute;
-  right: $featured-position-right;
+  width: 100%;
+  padding: $featured-capition-padding * (3/5);
   .title{
     font-size: $featured-title-size;
   }
+  @media (min-width: $screen-md-min){
+    bottom: $featured-position-bottom + $featured-nav-size;
+    padding: $featured-capition-padding;
+    position: absolute;
+    right: $featured-position-right;
+    width: $featured-capition-max-width;
+  }
 }
 .featured-nav{
-  bottom: $featured-position-bottom;
-  position: absolute;
-  right: $featured-position-right;
+  li{
+    display: inline;
+    position: relative;
+  }
   .next,.prev{
     float: left;
     height: $featured-nav-size;
@@ -38,6 +46,11 @@
   }
   .prev{
     background: $secondary-color;
+  }  
+  @media (min-width: $screen-md-min){
+    bottom: $featured-position-bottom;
+    position: absolute;
+    right: $featured-position-right;
   }
 }
 .sprite-feature-capition-shadow{

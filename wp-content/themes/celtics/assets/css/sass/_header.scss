@@ -18,12 +18,44 @@
   }
 }
 .header-logo{
-  left: $header-logo-position-left;
-  position: absolute;
-  top: $header-logo-position-top;
+  text-align: center;
+  &:before{
+    content: '';
+    left: -140px;
+    pointer-events: none;
+    position: absolute;
+    @include sprite-sprite(celtics-brasil-logo-shadow);    
+    z-index: -1;
+  }
+  @media (min-width: $screen-md-min){
+    left: $header-logo-position-left;
+    position: absolute;
+    top: $header-logo-position-top;
+    z-index: 1;
+  }
+  @media (max-width: $screen-sm-min){
+    &:before{      
+      max-width: 100%;
+    }
+  }
+}
+.advertising{
+  width: 100%;
+  max-width: 468px;
+  height: 60px;
+  border:1px solid #fff;
+  background: #BFBFBF;
+  margin:20px auto;
+  @media (min-width: $screen-md-min){    
+    float:right;
+  }
 }
 .header-menu{
   margin: $menu-vertical-margin 0;
+  text-align: center;
+  @media (min-width: $screen-md-min){
+    text-align: right;
+  }
   span{
     font:{
       family: $default-font;

@@ -10,19 +10,41 @@
 	'use strict';
 
 	$(document).ready(function() {
+		var winWidth = $(window).width();
+
 		function showMatchTimer() {
-			var winWidth = $(window).width();
-			var containerPosition = $('.container').offset().left + 15; //15 = padding
+			var containerPosition = $('.container').offset().left + 15;
+			//15 = padding
 			var matchWidth = $('.match-timer').outerWidth() + $('.next-match').outerWidth();
 			var newWidth = containerPosition + matchWidth;
 			$('.match-container').width(newWidth).animate({
 				'left' : 0
 			}, 500);
 		}
+		
+		function seeMoreWidth() {
+			var blockWidth = 0;
+			var linkWidth = 0;
+			var newWidth = 0;
+			$('.see-more').each(function() {
+				blockWidth = $(this).width();
+				linkWidth = $(this).find('a').outerWidth();
+				newWidth = (blockWidth - linkWidth) / 2;
+				$(this).find('.before').width(newWidth).end().find('.after').width(newWidth);
+			});
+		}
+		
+		function featuredHeight() {
+			var featured = $('.big-featured');
+			var featuredWidth = featured.find('li').height();
+			featured.height(featuredWidth);
+		}
 
 
 		$(window).resize(function() {
+			featuredHeight();
 			showMatchTimer();
+			seeMoreWidth();
 		});
 		$(window).load(function() {
 			$(window).resize();

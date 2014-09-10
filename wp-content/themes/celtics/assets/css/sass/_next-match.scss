@@ -8,17 +8,23 @@
   font-weight: $font-semi-bold;
   left: -100%;
   line-height: 1.2;
-  margin-top: $match-top;
+  margin-top: 30px;
+  max-width: 100%;
   position: relative;
   text-transform: uppercase;
+  @media (min-width: $screen-md-min){
+    margin-top: $match-top;    
+  }
+  @media (max-width: $screen-md-min){  
+    text-align: center;
+    min-width: 100%;
+  }
 }
 .next-match{  
   background: darken($primary-color,6%);
-  float: right;
   font-size: 12px;
   position: relative;
   header{    
-    float: left;
     padding: 20px;
   }
   .info{
@@ -36,30 +42,47 @@
       text-align: center;
       width: 60px;
     }
+  }  
+  @media (min-width: $screen-sm-min){
+    float: right;
+    header{
+      float: left;
+    }
   }
 }
 
 .match-timer {
   @include shadow('vertical','0 0 20px #333 inset', 92%, 0.8);
-  float: right;
   position: relative;
   div{
     display: inline-block;
   }
   .dozens, .units{
     background: darken($primary-color,6%);
-    font-size: $match-timer-font-size;
-    height: $match-timer-height;
-    line-height: $match-timer-height;
+    font-size: $match-timer-font-size * (2/3) ;
+    height: $match-timer-height * (2/3) ;
+    line-height: $match-timer-height * (3/4) ;
     margin-left: 3px;
-    width: $match-timer-width;
+    width: $match-timer-width * (2/3) ;
+    @media (min-width: $screen-sm-min){
+      font-size: $match-timer-font-size;      
+      height: $match-timer-height;
+      line-height: $match-timer-height;
+      width: $match-timer-width;
+    }
   }
   span{
     display: block;
     margin-top: $match-timer-margin*2;
+  } 
+  @media (min-width: $screen-md-min){  
+    float: right;
   }
 }
 .match-timer-days, .match-timer-hours, .match-timer-minutes, .match-timer-seconds{
-  margin: ($match-timer-margin*3) ($match-timer-margin*2);
+  margin: ($match-timer-margin*3) $match-timer-margin;
   text-align: center;
+  @media (min-width: $screen-sm-min){
+    margin: ($match-timer-margin*3) ($match-timer-margin*2);
+  }
 }

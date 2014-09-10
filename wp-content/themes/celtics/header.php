@@ -47,7 +47,7 @@
 				<div class="container">
 					<div class="row">
 					    <div class="col-sm-12">
-    						<form action="" method="get" class="header-search-form">
+    						<form action="#" method="get" class="header-search-form">
     							<span>Pesquisar<i class="icon sprite-search"></i></span>
     							<input type="search" name="search" class="header-search-input" required />
     						</form>
@@ -57,14 +57,18 @@
 			</div>
 			<div class="container">
 			    <div class="row">
-			        <div class="col-sm-4">
-			            <a class="header-logo" href="<?php bloginfo('url') ?>"><i class="icon sprite-celtics-brasil-logo hide-text">Celtics Brasil</i></a>
+			        <div class="col-sm-3 col-md-4">
+			            <div class="header-logo">
+			                <a href="<?php bloginfo('url') ?>">
+			                    <i class="icon sprite-celtics-brasil-logo hide-text">Celtics Brasil</i>
+			                </a>
+			            </div>
 			        </div>
 			        <div class="col-sm-6">
-			            <div style="width: 100%;max-width: 468px;float:right;height: 60px;border:1px solid #fff;background: #BFBFBF;margin:20px 0;"></div>                        
+			            <div class="advertising"></div>                        
                     </div>
-                    <div class="col-sm-2">
-                        <div class="header-menu text-right">
+                    <div class="col-sm-3 col-md-2">
+                        <div class="header-menu">
                             <span>menu</span>
                             <div class="icon-padding">
                                 <i class="icon sprite-menu"></i>

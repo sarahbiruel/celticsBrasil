@@ -1,0 +1,27 @@
+.btn{
+  border: 0;
+  color: $light-color;
+  display: inline-block;
+  font: {
+    size: 18px;
+    weight: $font-semi-bold;
+  }
+  padding: 20px 30px;
+  margin-right: 10px;
+  &:hover, &:focus{
+    color: $light-color;
+    outline: none;
+  }
+}
+.btn-primary{
+  background: $primary-color;
+  &:hover, &:focus{
+    background: darken($primary-color,6%);
+  }
+}
+.btn-secondary{
+  background: $secondary-color;
+  &:hover, &:focus{
+    background: darken($secondary-color,6%);
+  }
+}

@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		pkg : grunt.file.readJSON('package.json'),
 		concat : {
 			celtics_brasil : {
-				src : ['bootstrap/assets/js/transition.js', 'bootstrap/assets/js/button.js', 'bootstrap/assets/js/collapse.js', 'bootstrap/assets/js/dropdown.js', 'bootstrap/assets/js/tooltip.js', 'assets/js/src/**/*.js'],
+				src : ['bootstrap/assets/js/bootstrap/tab.js', 'bootstrap/assets/js/bootstrap/transition.js', 'assets/js/src/**/*.js'],
 				dest : 'assets/js/celtics_brasil.js'
 			}
 		},

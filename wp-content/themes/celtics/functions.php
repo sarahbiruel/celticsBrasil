@@ -23,3 +23,11 @@ include_once 'includes/custom-posts.php';
 include_once 'includes/classes/metabox.class.php';
 include_once 'includes/metabox.php';
 include_once 'includes/widgets-area.php';
+
+
+function strReplaceBegin($str, $prefix){
+    if (substr($str, 0, strlen($prefix)) == $prefix) {
+        $str = substr($str, strlen($prefix));
+    }
+    return $str;
+}

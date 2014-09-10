@@ -6,31 +6,39 @@
 function arphabet_widgets_init() {
 
     register_sidebar( array(
-        'name' => 'Área esqueda da página de contato',
-        'id' => 'contato-left',
-        'before_title' => '<h2 class="title">',
-        'after_title' => '</h2>',
+        'name' => 'Widget página inicial',
+        'id' => 'home-widget',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',    
+        'before_title' => '<h2 class="title"><span>',
+        'after_title' => '</span></h2>',
     ) );
     
     register_sidebar( array(
-        'name' => 'Área final da página de contato',
-        'id' => 'contato-bottom',
-        'before_title' => '<h2 class="title" style="display: none;">',
-        'after_title' => '</h2>',
+        'name' => 'Rodapé Widget - Primeira Área',
+        'id' => 'footer-widget-first',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',    
+        'before_title' => '<h2 class="title"><span>',
+        'after_title' => '</span></h2>',
     ) );
     
     register_sidebar( array(
-        'name' => 'Área direita do menu',
-        'id' => 'menu-right',
-        'before_title' => '',
-        'after_title' => '',
+        'name' => 'Rodapé Widget - Segunda Área',
+        'id' => 'footer-widget-second',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',    
+        'before_title' => '<h2 class="title"><span>',
+        'after_title' => '</span></h2>',
     ) );
     
     register_sidebar( array(
-        'name' => 'Rodapé',
-        'id' => 'footer',
-        'before_title' => '',
-        'after_title' => '',
+        'name' => 'Rodapé Widget - Terceira Área',
+        'id' => 'footer-widget-third',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',    
+        'before_title' => '<h2 class="title"><span>',
+        'after_title' => '</span></h2>',
     ) );
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );

@@ -1,10 +1,16 @@
 body{
-  background: url(../../images/home-top-bg.jpg) no-repeat center 50px;
+  background: url(../../images/home-top-bg.jpg) center 50px no-repeat;
+}
+.main{
+  background: url(../../images/home-bottom-bg.jpg) center bottom no-repeat;
 }
 ul{
   margin: 0;
   padding: 0;
   @include reset-list-style;
+}
+.gray-link{    
+  color: $gray !important;
 }
 .title{
   color: $default-type-color;
@@ -17,9 +23,71 @@ ul{
     color: $default-type-color;
   } 
 }
+h2.title{
+  border-bottom: 1px solid $border-default-color;
+  color: #0C6637;
+  font: {
+    size: 30px;
+    weight: $font-semi-bold;
+  }
+  padding: 20px 0;
+  span{
+    padding: 20px 0;
+    position: relative;
+    &:before{
+      border: 3px solid #0C6637;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+  
 .date-time{  
   color: $default-type-color;
 }
 .date,.time{
   display: inline;
+}
+.see-more{
+  position: relative;
+  text-align: center;
+  a{
+    padding: 0 20px;
+  }
+  .before, .after{
+    content: '';
+    height: 1px;
+    background: $border-default-color;
+    position: absolute;
+    top: 50%;
+    width: 35%;
+  }
+  .before{
+    left: 0;
+  }
+  .after{
+    right: 0;
+  }
+  i{
+    margin-left: 15px;
+  }
+}
+.wpcf7-form{
+  input, textarea{
+    color: $secondary-color;
+    padding: 10px 15px;
+    width: 100%;
+  }
+}
+span.wpcf7-not-valid-tip{
+  color: $light-color;
+}
+div.wpcf7-validation-errors{
+  border-color: $primary-color;
+}
+div.wpcf7-response-output{
+  margin: 0;
 }
