@@ -78,6 +78,9 @@
   @media (min-width: $screen-md-min){  
     float: right;
   }
+  @media (max-width: $screen-sm-min){    
+    @include box-shadow(0 0px 15px -6px black);
+  }
 }
 .match-timer-days, .match-timer-hours, .match-timer-minutes, .match-timer-seconds{
   margin: ($match-timer-margin*3) $match-timer-margin;

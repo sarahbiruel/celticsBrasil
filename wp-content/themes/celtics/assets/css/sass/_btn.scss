@@ -6,9 +6,13 @@
     size: 18px;
     weight: $font-semi-bold;
   }
+  line-height: 1;
   padding: 20px 30px;
-  margin-right: 10px;
-  &:hover, &:focus{
+  &:hover{
+    color: $light-color;
+    outline: none;
+  }
+  &:focus{
     color: $light-color;
     outline: none;
   }
@@ -24,4 +28,7 @@
   &:hover, &:focus{
     background: darken($secondary-color,6%);
   }
+}
+.dropdown{
+  display: inline;
 }

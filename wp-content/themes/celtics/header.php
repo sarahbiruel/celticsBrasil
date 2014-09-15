@@ -42,6 +42,9 @@
         ?>
     </head>
     <body>
+        <?php
+        global $data;
+ ?>
         <header id="header">
            <div class="header-bar text-right">
 				<div class="container">
@@ -60,7 +63,7 @@
 			        <div class="col-sm-3 col-md-4">
 			            <div class="header-logo">
 			                <a href="<?php bloginfo('url') ?>">
-			                    <i class="icon sprite-celtics-brasil-logo hide-text">Celtics Brasil</i>
+			                    <img src="<?php echo $data['media_upload_logo']; ?>" >
 			                </a>
 			            </div>
 			        </div>
@@ -68,13 +71,25 @@
 			            <div class="advertising"></div>                        
                     </div>
                     <div class="col-sm-3 col-md-2">
-                        <div class="header-menu">
-                            <span>menu</span>
-                            <div class="icon-padding">
-                                <i class="icon sprite-menu"></i>
-                            </div>
-                        </div>
-                    </div>
+						<div class="header-menu dl-menuwrapper">
+							<span class="dl-trigger">menu</span>
+							<a href="#" class="icon-padding dl-trigger"> <i class="icon sprite-menu"></i> </a>
+								<?php
+
+                                $defaults = array(
+                                    'theme_location'  => 'primary',
+                                    'container'       => false,
+                                    'menu_class'      => 'dl-menu',
+                                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    'depth'           => 3,
+                                    'walker' => new My_Walker_Nav_Menu()
+                                );
+                                
+                                wp_nav_menu( $defaults );
+                                
+                                ?>
+						</div>
+					</div>
 			    </div>
 			</div>
         </header>

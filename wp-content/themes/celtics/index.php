@@ -7,34 +7,50 @@
  */
 
 get_header();
-;
 ?>
 <div class="main">
     <div class="container">
     	<div class="row">
     		<div class="col-sm-12">
     			<section id="home-slide">
+    			    <?php 
+    			         $args = array(
+                             'post_type' => 'post',
+                             'posts_per_page' => 5
+                         );
+                         $featured = new WP_Query($args);
+                         if ($featured->have_posts()) : 
+    			    ?>
     				<ul class="big-featured">
+    				    <?php
+    				        while ($featured -> have_posts()) : $featured -> the_post();
+    				    ?>
     					<li>
-    						<a href="#"> <img class="img-responsive" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" />
+    						<a href="<?php the_permalink(); ?>">
+    						    <?php
+                                if (has_post_thumbnail())
+                                    the_post_thumbnail('featured', array('class' => 'img-responsive'));
+                                ?>
         						<div class="featured-capition">
         							<div class="title">
-        								Análise do calendário de jogos do Celtics para 2014/2015
+        								<?php the_title(); ?>
         							</div>
         							<time datetime="2014-02-01 14:00" class="date-time hidden-xs">
-        								<span class="date"> 01/02/2014 </span>
+        								<span class="date"> <?php echo get_the_date(); ?> </span>
         								-
-        								<span class="time"> 14:00h </span>
+        								<span class="time"> <?php echo get_the_time(); ?>h </span>
         							</time>
         						</div> 
     						</a>
     					</li>
+    					<?php endwhile; ?>
     				</ul>
                     <ul class="featured-nav">
                         <li><a href="#" class="prev"> <i class="icon sprite-featured-arrow-left"></i> </a></li>
                         <li><a href="#" class="next"> <i class="icon sprite-featured-arrow-right"></i> </a></li>
                     </ul>
                     <div class="sprite-feature-capition-shadow visible-md visible-lg"></div>
+                    <?php endif; ?>
     			</section>
     		</div>
     	</div>
@@ -115,15 +131,28 @@ get_header();
     		<div class="col-sm-3 col-sm-offset-9">
     			<section class="home-social text-center">
     				<ul class="row">
-    					<li class="col-sm-4">
-    						<a href="#" target="_blank"> <i class="icon sprite-rss"></i> <span class="alias">ARTIGOS</span> <span class="number">1952</span> </a>
+    				    <?php    				    
+    				    if (!$data['twitter-page'] || !$data['facebook-page']){	            
+                            if(!$data['twitter-page'] && !$data['facebook-page']){
+    				            $offset = 'col-sm-offset-8';
+    				        }else{
+    				            $offset = 'col-sm-offset-4';
+                            }
+                        }
+                        ?>
+    					<li class="col-sm-4 <?php echo $offset;?>">
+    						<a href="<?php bloginfo('rss_url'); ?>" target="_blank"> <i class="icon sprite-rss"></i> <span class="alias">ARTIGOS</span> <span class="number">1952</span> </a>
     					</li>
+    					<?php if($data['twitter-page']){ ?>
     					<li class="col-sm-4">
-    						<a href="#" target="_blank"><i class="icon sprite-twitter"></i><span class="alias">SEGUIDORES</span> <span class="number">2763</span></a>
+    						<a href="<?php echo $data['twitter-page']?>" target="_blank"><i class="icon sprite-twitter"></i><span class="alias">SEGUIDORES</span> <span class="number">2763</span></a>
     					</li>
+    					<?php } ?>
+    					<?php if($data['facebook-page']){ ?>
     					<li class="col-sm-4">
-    						<a href="#" target="_blank"><i class="icon sprite-facebook"></i><span class="alias">CURTIDAS</span> <span class="number">1963</span></a>
+    						<a href="<?php echo $data['facebook-page']?>" target="_blank"><i class="icon sprite-facebook"></i><span class="alias">CURTIDAS</span> <span class="number">1963</span></a>
     					</li>
+                        <?php } ?>
     				</ul>
     			</section>
     		</div>
@@ -133,117 +162,50 @@ get_header();
     	<div class="row">
     		<div class="news">
     			<div class="col-sm-12">
+                    <?php 
+                         $args = array(
+                             'post_type' => 'post',
+                             'posts_per_page' => 5
+                         );
+                         $news = new WP_Query($args);
+                         if ($news->have_posts()) : 
+                    ?>
     				<h2 class="title"><span>Últimas notícias</span></h2>
     				<ul>
+                        <?php
+                            while ($news -> have_posts()) : $news -> the_post();
+                        ?>
     					<li>
-    						<div class="thumb">
-    							<a href="#"><img src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
+                            <?php
+                              if (has_post_thumbnail()){
+                            ?>
+    						<div class="thumb">    						    
+                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('news', array('class' => 'img-responsive')); ?></a>
     						</div>
+    						<?php } ?>
     						<div class="text">
     							<header>
-    								<h3 class="title"><a href="#">Evan Turner fecha contrato com o Celtics</a></h3>
+    								<h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     								<time datetime="2014-02-01 14:00" class="date-time">
     									<span class="date"> 01/02/2014 </span>
     									-
     									<span class="time"> 14:00h </span>
     								</time>
     							</header>
-    							<div class="excerpt">
-    								<a href="#">No fim da tarde desta segunda-feira (21), faltando 100 dias para o início da temporada regular da NBA, o Boston Celtics anunciou mais um reforço para as disputas em 2014/2015.</a>
+    							<div class="excerpt hidden-xs">
+    								<a href="<?php the_permalink(); ?>"><?php echo excerpt(35); ?></a>
     							</div>
     						</div>
     						<div class="comments">
-    							<a href="#"> <span class="comments-number"> 49 </span> <span>comentários</span> </a>
+    							<a href="<?php the_permalink(); ?>"> <span class="comments-number"> 49 </span> <span>comentários</span> </a>
     						</div>
     					</li>
-    					<li>
-    						<div class="thumb">
-    							<a href="#"><img src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    						</div>
-    						<div class="text">
-    							<header>
-    								<h3 class="title"><a href="#">Após insucesso no mercado, Wyc acredita em reconstrução paciente</a></h3>
-    								<time datetime="2014-02-01 14:00" class="date-time">
-    									<span class="date"> 01/02/2014 </span>
-    									-
-    									<span class="time"> 14:00h </span>
-    								</time>
-    							</header>
-    							<div class="excerpt">
-    								<a href="#">No fim da tarde desta segunda-feira (21), faltando 100 dias para o início da temporada regular da NBA, o Boston Celtics anunciou mais um reforço para as disputas em 2014/2015.</a>
-    							</div>
-    						</div>
-    						<div class="comments">
-    							<a href="#"> <span class="comments-number"> 49 </span> <span>comentários</span> </a>
-    						</div>
-    					</li>
-    					<li>
-    						<div class="thumb">
-    							<a href="#"><img src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    						</div>
-    						<div class="text">
-    							<header>
-    								<h3 class="title"><a href="#">Evan Turner fecha contrato com o Celtics</a></h3>
-    								<time datetime="2014-02-01 14:00" class="date-time">
-    									<span class="date"> 01/02/2014 </span>
-    									-
-    									<span class="time"> 14:00h </span>
-    								</time>
-    							</header>
-    							<div class="excerpt">
-    								<a href="#">No fim da tarde desta segunda-feira (21), faltando 100 dias para o início da temporada regular da NBA, o Boston Celtics anunciou mais um reforço para as disputas em 2014/2015.</a>
-    							</div>
-    						</div>
-    						<div class="comments">
-    							<a href="#"> <span class="comments-number"> 49 </span> <span>comentários</span> </a>
-    						</div>
-    					</li>
-    					<li>
-    						<div class="thumb">
-    							<a href="#"><img src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    						</div>
-    						<div class="text">
-    							<header>
-    								<h3 class="title"><a href="#">Após insucesso no mercado, Wyc acredita em reconstrução paciente</a></h3>
-    								<time datetime="2014-02-01 14:00" class="date-time">
-    									<span class="date"> 01/02/2014 </span>
-    									-
-    									<span class="time"> 14:00h </span>
-    								</time>
-    							</header>
-    							<div class="excerpt">
-    								<a href="#">No fim da tarde desta segunda-feira (21), faltando 100 dias para o início da temporada regular da NBA, o Boston Celtics anunciou mais um reforço para as disputas em 2014/2015.</a>
-    							</div>
-    						</div>
-    						<div class="comments">
-    							<a href="#"> <span class="comments-number"> 49 </span> <span>comentários</span> </a>
-    						</div>
-    					</li>
-    					<li>
-    						<div class="thumb">
-    							<a href="#"><img src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    						</div>
-    						<div class="text">
-    							<header>
-    								<h3 class="title"><a href="#">Evan Turner fecha contrato com o Celtics</a></h3>
-    								<time datetime="2014-02-01 14:00" class="date-time">
-    									<span class="date"> 01/02/2014 </span>
-    									-
-    									<span class="time"> 14:00h </span>
-    								</time>
-    							</header>
-    							<div class="excerpt">
-    								<a href="#">No fim da tarde desta segunda-feira (21), faltando 100 dias para o início da temporada regular da NBA, o Boston Celtics anunciou mais um reforço para as disputas em 2014/2015.</a>
-    							</div>
-    						</div>
-    						<div class="comments">
-    							<a href="#"> <span class="comments-number"> 49 </span> <span>comentários</span> </a>
-    						</div>
-    					</li>
+    					<?php endwhile; ?>
     				</ul>
     				<div class="see-more">
     					<span class="before"></span><a href="#" class="gray-link">Clique e veja mais notícias<i class="icon sprite-see-more-gray"></i></a><span class="after"></span>
     				</div>
+                    <?php endif; ?>
     			</div>
     		</div>
     	</div>

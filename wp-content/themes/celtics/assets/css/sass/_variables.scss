@@ -18,7 +18,7 @@ $titulo-default-seze: 18px;
 $header-bar-height: 50px;
 $header-bar-border: 1px solid lighten($secondary-color, 11);
 $header-bar-margin: 15px;
-$header-logo-position-top: -($header-bar-height + 10px);
+$header-logo-position-top: -($header-bar-height - 5px);
 $header-logo-position-left: $header-bar-height - 10px;
 $menu-vertical-margin: 30px;
 $menu-font-size: 25px;

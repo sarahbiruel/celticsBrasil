@@ -9,7 +9,15 @@ module.exports = function(grunt) {
 		pkg : grunt.file.readJSON('package.json'),
 		concat : {
 			celtics_brasil : {
-				src : ['bootstrap/assets/js/bootstrap/tab.js', 'bootstrap/assets/js/bootstrap/transition.js', 'assets/js/src/**/*.js'],
+				src : [
+					'bootstrap/assets/js/bootstrap/tab.js', 
+					'bootstrap/assets/js/bootstrap/transition.js', 
+					'bootstrap/assets/js/bootstrap/dropdown.js', 
+					'bootstrap/assets/js/bootstrap/button.js', 
+					'assets/js/src/modernizr.custom.js', 
+					'assets/js/src/jquery.dlmenu.js', 
+					'assets/js/src/celtics_brasil.js'
+				],
 				dest : 'assets/js/celtics_brasil.js'
 			}
 		},
@@ -36,7 +44,8 @@ module.exports = function(grunt) {
 					banner : '/*! <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' + ' * <%= pkg.homepage %>\n' + ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' + ' * Licensed GPLv2+' + ' */\n',
 					mangle : {
 						except : ['jQuery']
-					}
+					},
+					report: 'gzip'
 				}
 			}
 		},
