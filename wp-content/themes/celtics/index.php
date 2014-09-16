@@ -12,7 +12,7 @@ get_header();
     <div class="container">
     	<div class="row">
     		<div class="col-sm-12">
-    			<section id="home-slide">
+    			<section id="home-slide" class="fxSoftPulse">
     			    <?php 
     			         $args = array(
                              'post_type' => 'post',
@@ -27,28 +27,39 @@ get_header();
     				    ?>
     					<li>
     						<a href="<?php the_permalink(); ?>">
+    						    <div class="img-container">
     						    <?php
                                 if (has_post_thumbnail())
                                     the_post_thumbnail('featured', array('class' => 'img-responsive'));
                                 ?>
-        						<div class="featured-capition">
-        							<div class="title">
-        								<?php the_title(); ?>
-        							</div>
-        							<time datetime="2014-02-01 14:00" class="date-time hidden-xs">
-        								<span class="date"> <?php echo get_the_date(); ?> </span>
-        								-
-        								<span class="time"> <?php echo get_the_time(); ?>h </span>
-        							</time>
-        						</div> 
+                                </div>
     						</a>
     					</li>
     					<?php endwhile; ?>
     				</ul>
-                    <ul class="featured-nav">
+    				
+                    <div class="featured-capition-list">
+                        <?php
+                            wp_reset_query();
+                            $i = 1;
+                            while ($featured -> have_posts()) : $featured -> the_post();
+                        ?>
+                        <div class="featured-capition" data-index="<?php echo $i; ?>">
+                            <div class="title">
+                                <?php the_title(); ?>
+                            </div>
+                            <time datetime="2014-02-01 14:00" class="date-time hidden-xs">
+                                <span class="date"> <?php echo get_the_date(); ?> </span>
+                                -
+                                <span class="time"> <?php echo get_the_time(); ?>h </span>
+                            </time>
+                        </div>
+                    <?php $i++; endwhile; ?>
+                    </div>
+                    <nav class="featured-nav">
                         <li><a href="#" class="prev"> <i class="icon sprite-featured-arrow-left"></i> </a></li>
                         <li><a href="#" class="next"> <i class="icon sprite-featured-arrow-right"></i> </a></li>
-                    </ul>
+                    </nav>
                     <div class="sprite-feature-capition-shadow visible-md visible-lg"></div>
                     <?php endif; ?>
     			</section>
@@ -212,125 +223,53 @@ get_header();
     </section>
     <div class="container">
     	<div class="row">
-    		<div class="col-sm-8">
+    		<div class="col-md-8">
     			<section id="home-category">
     				<h2 class="title"><span>Colunas</span></h2>
     				<div class="row">
     					<div class="col-sm-5">
     						<ul class="categories">
+    						    <?php
+        						    $args = array('child_of' => 138);
+                                    $categories = get_categories( $args );
+                                    foreach($categories as $category) {
+    						    ?>
     							<li>
-    								<a href="#tab1" role="tab" data-toggle="tab">Aprenda sem Berro<i class="icon sprite-category-arraw"></i></a>
+    								<a href="#<?php echo $category->slug;?>" role="tab" data-toggle="tab"><?php echo $category->name; ?><i class="icon sprite-category-arraw"></i></a>
     							</li>
-    							<li>
-    								<a href="#tab2" role="tab" data-toggle="tab">Craques do passado<i class="icon sprite-category-arraw"></i></a>
-    							</li>
-    							<li>
-    								<a href="#tab3" role="tab" data-toggle="tab">Glauco Cemia<i class="icon sprite-category-arraw"></i></a>
-    							</li>
-    							<li>
-    								<a href="#tab4" role="tab" data-toggle="tab">Rivalidades<i class="icon sprite-category-arraw"></i></a>
-    							</li>
-    							<li>
-    								<a href="#tab5" role="tab" data-toggle="tab">Sinal Verde<i class="icon sprite-category-arraw"></i></a>
-    							</li>
-    							<li>
-    								<a href="#tab6" role="tab" data-toggle="tab">Títulos<i class="icon sprite-category-arraw"></i></a>
-    							</li>
-    							<li>
-    								<a href="#tab7" role="tab" data-toggle="tab">Túnel do Tempo<i class="icon sprite-category-arraw"></i></a>
-    							</li>
+    							<?php } ?>
     						</ul>
     					</div>
     					<div class="col-sm-7">
     						<div class="tab-content categories-news">
-    							<div class="tab-pane fade in active" id="tab1">
+                                <?php
+                                $i = 0;
+                                foreach($categories as $category) {
+                                    $i++;
+                                    $args = array(
+                                        'post_type' => 'post',
+                                        'posts_per_page' => 4
+                                    );
+                                ?>
+    							<div class="tab-pane fade <?php echo $i == 1 ? 'in active' : ''; ?>" id="<?php echo $category->slug;?>">
     								<ul>
+    								<?php
+    								 $category = $category->slug;
+                                     query_posts(array ( 'category_name' => $category, 'posts_per_page' => 4 ));
+                                     if (have_posts()) : while (have_posts()) : the_post();
+                                     ?>
     									<li>
+    									    <?php  if (has_post_thumbnail()){ ?>
     										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
+    											<a href="<?php the_permalink();?>"><?php the_post_thumbnail('thumb', array('class' => 'img-responsive')); ?></a>
     										</div>
-    										<h4><a href="#">Evan Turner fecha contrato com o Celtics</a></h4>
+    										<?php } ?>
+    										<h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
     									</li>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Evan Turner fecha contrato com o Celtics</a></h4>
-    									</li>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Evan Turner fecha contrato com o Celtics</a></h4>
-    									</li>
+                                        <?php endwhile; endif; ?>
     								</ul>
     							</div>
-    							<div class="tab-pane fade" id="tab2">
-    								<ul>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Celtics vem oferecendo Bass a outras equipes</a></h4>
-    									</li>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Celtics vem oferecendo Bass a outras equipes</a></h4>
-    									</li>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Celtics vem oferecendo Bass a outras equipes</a></h4>
-    									</li>
-    								</ul>
-    							</div>
-    							<div class="tab-pane fade" id="tab3">
-    								<ul>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-    									</li>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-    									</li>
-    									<li>
-    										<div class="mini-thumb">
-    											<a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-    										</div>
-    										<h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-    									</li>
-    								</ul>
-    							</div>							
-                                <div class="tab-pane fade" id="tab5">
-                                    <ul>
-                                        <li>
-                                            <div class="mini-thumb">
-                                                <a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-                                            </div>
-                                            <h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-                                        </li>
-                                        <li>
-                                            <div class="mini-thumb">
-                                                <a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-                                            </div>
-                                            <h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-                                        </li>
-                                        <li>
-                                            <div class="mini-thumb">
-                                                <a href="#"><img width="150" src="<?php echo get_stylesheet_directory_uri() . '/images/big-featured.jpg'; ?>" alt="" class="img-responsive" /></a>
-                                            </div>
-                                            <h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-                                        </li>
-                                    </ul>
-                                </div>
+    							<?php wp_reset_query(); } ?>
     						</div>
                             <div class="see-more">
                                 <span class="before"></span><a href="#" class="gray-link">Clique e veja mais notícias<i class="icon sprite-see-more-gray"></i></a><span class="after"></span>
@@ -339,7 +278,7 @@ get_header();
     				</div>
     			</section>
     		</div>
-    		<div class="col-sm-4">
+    		<div class="col-md-4">
     			<section id="home-widget">
     				<?php dynamic_sidebar('home-widget'); ?>
     			</section>

@@ -3,9 +3,7 @@
   position: relative;  
   @include shadow('vertical','0 0 20px #333', 98%, 0.8);
   li{
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
   }
   a:hover{
     text-decoration: none;
@@ -13,8 +11,12 @@
 }
 .featured-capition{
   background-color: $primary-color;
+  display: none;
   width: 100%;
   padding: $featured-capition-padding * (3/5);
+  &:first-child{
+    display: block;
+  }
   .title{
     font-size: $featured-title-size;
   }
@@ -24,10 +26,12 @@
     position: absolute;
     right: $featured-position-right;
     width: $featured-capition-max-width;
+    z-index: 1;
   }
 }
 .featured-nav{
   float: right;
+  z-index: 1;
   li{
     display: inline;
     position: relative;
@@ -58,4 +62,5 @@
   position: absolute;
   bottom: 126px;
   right: 39px;
+  z-index: 1;
 }

@@ -14,11 +14,12 @@
     } 
   }
   h2.title{
-    border-bottom: 1px solid $light-color;
+    border-color: $light-color;
     color: $light-color;
     span{
       &:before{
         border-color: $light-color;
+        bottom: 0;
       }
     }
   }

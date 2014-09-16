@@ -14,8 +14,9 @@ module.exports = function(grunt) {
 					'bootstrap/assets/js/bootstrap/transition.js', 
 					'bootstrap/assets/js/bootstrap/dropdown.js', 
 					'bootstrap/assets/js/bootstrap/button.js', 
-					'assets/js/src/modernizr.custom.js', 
-					'assets/js/src/jquery.dlmenu.js', 
+					'assets/js/src/modernizr.custom.js',
+					'assets/js/src/jquery.dlmenu.js',  
+					'assets/js/src/carouFredSel.js',
 					'assets/js/src/celtics_brasil.js'
 				],
 				dest : 'assets/js/celtics_brasil.js'

@@ -36,7 +36,7 @@ h2.title{
     position: relative;
     &:before{
       border: 3px solid #0C6637;
-      bottom: 0;
+      bottom: 3px;
       content: '';
       left: 0;
       position: absolute;
@@ -45,13 +45,14 @@ h2.title{
   }
 }
   
-.date-time{  
+.date-time{
   color: $default-type-color;
 }
 .date,.time{
   display: inline;
 }
 .see-more{
+  clear: both;
   position: relative;
   text-align: center;
   a{
