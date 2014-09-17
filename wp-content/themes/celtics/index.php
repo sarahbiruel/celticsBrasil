@@ -204,7 +204,7 @@ get_header();
     								</time>
     							</header>
     							<div class="excerpt hidden-xs">
-    								<a href="<?php the_permalink(); ?>"><?php echo excerpt(35); ?></a>
+    								<a href="<?php the_permalink(); ?>"><?php echo excerpt(30); ?></a>
     							</div>
     						</div>
     						<div class="comments">
@@ -232,12 +232,13 @@ get_header();
     						    <?php
         						    $args = array('child_of' => 138);
                                     $categories = get_categories( $args );
+                                    $i = 1;
                                     foreach($categories as $category) {
     						    ?>
-    							<li>
+    							<li class="<?php if ($i == 1) echo 'active'; ?>">
     								<a href="#<?php echo $category->slug;?>" role="tab" data-toggle="tab"><?php echo $category->name; ?><i class="icon sprite-category-arraw"></i></a>
     							</li>
-    							<?php } ?>
+    							<?php $i++; } ?>
     						</ul>
     					</div>
     					<div class="col-sm-7">

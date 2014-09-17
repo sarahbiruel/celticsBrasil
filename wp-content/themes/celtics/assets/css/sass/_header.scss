@@ -19,6 +19,7 @@
 }
 .header-logo{
   text-align: center;
+  margin-top: 10px;
   &:before{
     content: '';
     left: -140px;
@@ -29,6 +30,7 @@
     z-index: -1;
   }
   @media (min-width: $screen-md-min){
+    margin: 0;
     left: $header-logo-position-left;
     position: absolute;
     top: $header-logo-position-top;

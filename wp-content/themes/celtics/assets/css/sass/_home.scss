@@ -69,7 +69,6 @@
     padding: 0 18px;
   }
   li:nth-child(even){
-    background: $primary-color;
     .thumb{
       margin: 0;
     }
@@ -77,7 +76,6 @@
       margin: 0;
     }
     .comments{
-      background: $secondary-color;
       left: 0;
       right: inherit;
     }
@@ -98,6 +96,12 @@
       }
   }
   @media (min-width: $screen-md-min){
+    li:nth-child(even){
+      background: $primary-color;      
+      .comments{
+        background: $secondary-color;
+      }
+    }
     margin-top: -35px;
     .thumb{
       float: left;
@@ -237,8 +241,13 @@
      */
     .btn{
       display: inline-block !important;
-      margin:10px 10px 0 0;
-      padding: 20px 30px !important;
+      margin: 10px 10px 0 0;
+      padding: 15px 15px !important;
+    }
+    @media (min-width: $screen-lg-min){
+      .btn{
+        padding: 20px 30px !important;
+      }
     }
 }
 
