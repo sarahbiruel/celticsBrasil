@@ -8426,24 +8426,29 @@ body {
   top: -15px;
   z-index: -1;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   /* line 20, sass/_header.scss */
   .header-logo {
     margin: 0;
-    left: 40px;
     position: absolute;
     top: -45px;
     z-index: 2;
   }
 }
 @media (max-width: 768px) {
-  /* line 40, sass/_header.scss */
+  /* line 39, sass/_header.scss */
   .header-logo:before {
     max-width: 100%;
   }
 }
+@media (min-width: 992px) {
+  /* line 20, sass/_header.scss */
+  .header-logo {
+    left: 40px;
+  }
+}
 
-/* line 45, sass/_header.scss */
+/* line 47, sass/_header.scss */
 .advertising {
   width: 100%;
   max-width: 468px;
@@ -8451,9 +8456,11 @@ body {
   border: 1px solid #fff;
   background: #BFBFBF;
   margin: 20px auto;
+  position: relative;
+  z-index: 2;
 }
 @media (min-width: 992px) {
-  /* line 45, sass/_header.scss */
+  /* line 47, sass/_header.scss */
   .advertising {
     float: right;
   }

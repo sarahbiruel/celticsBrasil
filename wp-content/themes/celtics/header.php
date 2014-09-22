@@ -60,7 +60,7 @@
 			</div>
 			<div class="container">
 			    <div class="row">
-			        <div class="col-sm-3 col-md-4">
+			        <div class="col-sm-3 col-md-3">
 			            <div class="header-logo">
 			                <a href="<?php bloginfo('url') ?>">
 			                    <img src="<?php echo $data['media_upload_logo']; ?>" >
@@ -70,7 +70,7 @@
 			        <div class="col-sm-6">
 			            <div class="advertising"></div>                        
                     </div>
-                    <div class="col-sm-3 col-md-2">
+                    <div class="col-sm-3 col-md-3">
 						<div class="header-menu dl-menuwrapper">
 							<span class="dl-trigger">menu</span>
 							<a href="#" class="icon-padding dl-trigger"> <i class="icon sprite-menu"></i> </a>

@@ -67,74 +67,11 @@ get_header();
     	</div>
     </div>
     <section id="next-match">
-    	<div class="match-container">
-    		<div class="next-match">
-    			<header>
-    				<h1 class="title"> Próxima partida </h1>
-    				<div class="info">
-    					<div class="teams">
-    						<span class="home-team"> Celtics </span><span class="at"> X </span><span class="away-team"> Bulls </span>
-    					</div>
-    					<div class="stadium">
-    						TD. GARDEN - BOS
-    					</div>
-    					<time datetime="2014-02-01 14:00" class="date-time">
-    						<span class="date"> 01/02/2014 </span>
-    						-
-    						<span class="time"> 14:00h </span>
-    					</time>
-    				</div>
-    			</header>
-    			<div class="teams-logo hidden-xs">
-    				<ul>
-    					<li>
-    						<img src="<?php echo get_stylesheet_directory_uri() . '/images/teams-logo.png'; ?>" alt="" />
-    					</li>
-    					<li>
-    						<img src="<?php echo get_stylesheet_directory_uri() . '/images/teams-logo.png'; ?>" alt="" />
-    					</li>
-    				</ul>
-    			</div>
-    			<div class="sprite-match-timer-shadow  hidden-xs"></div>
-    		</div>
-    		<div class="match-timer">
-    			<div class="match-timer-days">
-    				<div class="dozens">
-    					0
-    				</div>
-    				<div class="units">
-    					1
-    				</div>
-    				<span>DIAS</span>
-    			</div>
-    			<div class="match-timer-hours">
-    				<div class="dozens">
-    					1
-    				</div>
-    				<div class="units">
-    					2
-    				</div>
-    				<span>HORAS</span>
-    			</div>
-    			<div class="match-timer-minutes">
-    				<div class="dozens">
-    					5
-    				</div>
-    				<div class="units">
-    					3
-    				</div>
-    				<span>MINUTOS</span>
-    			</div>
-    			<div class="match-timer-seconds hidden-xs hidden-sm">
-    				<div class="dozens">
-    					2
-    				</div>
-    				<div class="units">
-    					4
-    				</div>
-    				<span>SEGUNDOS</span>
-    			</div>
-    		</div>
+    	<div class="match-container">    		
+            <?php    
+             if ( shortcode_exists( 'countdown' ) )
+                echo  do_shortcode('[countdown show_venue="1" show_league="0"]');
+            ?>    		
     	</div>
     </section>
     <div class="container hidden-xs hidden-sm">
@@ -223,7 +160,7 @@ get_header();
     </section>
     <div class="container">
     	<div class="row">
-    		<div class="col-md-8">
+    		<div class="col-md-8 hidden-xs">
     			<section id="home-category">
     				<h2 class="title"><span>Colunas</span></h2>
     				<div class="row">

@@ -10,11 +10,10 @@
 	'use strict';
 
 	var winWidth = $(window).width();
-	
-	
+
 	/*
 	 * Next Match Timer
-	 * 
+	 *
 	 */
 	function showMatchTimer() {
 		var containerPosition = $('.container').offset().left + 15;
@@ -24,11 +23,16 @@
 		$('.match-container').width(newWidth).animate({
 			'left' : 0
 		}, 500);
+
+		// call my countdown
+		$('.match-timer').countdown({
+			delay : 1000
+		});
 	}
-	
+
 	/*
 	 * See More
-	 * 
+	 *
 	 */
 	function seeMoreWidth() {
 		var blockWidth = 0;
@@ -41,7 +45,7 @@
 			$(this).find('.before').width(newWidth).end().find('.after').width(newWidth);
 		});
 	}
-	
+
 	/*
 	 * Featured
 	 */
@@ -52,61 +56,20 @@
 	}
 
 	/*
-	 * Slides Functions
-	 * 
-	 * @see http://docs.dev7studios.com/jquery-plugins/caroufredsel-advanced
-	 */
-	$('#home-slide ul').carouFredSel({
-		items : 1,
-		transition : true,
-		responsive : true,
-		prev : {
-			button :'.prev',
-			onBefore: function(data) { slideCaption('#home-slide .featured-capition','prev');}
-		},
-		next : '.next',
-		auto : {
-			timeoutDuration	: 5000
-		},
-		swipe : {
-			onTouch : true
-		},
-		scroll : {
-			fx : 'crossfade',
-			items : 1,
-			easing : 'linear',
-			pauseOnHover : true,
-			onBefore: function(data) { slideCaption('#home-slide .featured-capition','next');}
-		}
-	});
-	
-	function slideCaption(obj,direction){
-		var length = $(obj).length;
-		var oldCaption = $(obj+':visible').data('index');
-		if (direction == 'next')
-			var newCaption = oldCaption < length ? oldCaption + 1 : 1;
-		if (direction == 'prev')
-			var newCaption = oldCaption > 1 ? oldCaption - 1 : length;
-		$(obj).hide();
-		$(obj+'[data-index="'+newCaption+'"]').show();
-	}
-	
-	/*
 	 * Main menu functions
 	 */
-	
-	$('.header-menu').dlmenu({
-		animationClasses : {
-			classin : 'dl-animate-in-5',
-			classout : 'dl-animate-out-5'
-		}
-	});
-	
-	
+
+	/* $('.header-menu').dlmenu({
+	 animationClasses : {
+	 classin : 'dl-animate-in-5',
+	 classout : 'dl-animate-out-5'
+	 }
+	 }); */
+
 	/*
 	 * Resize functions & trigger
 	 */
-	
+
 	$(window).resize(function() {
 		featuredHeight();
 		showMatchTimer();

@@ -22,8 +22,8 @@ include_once 'includes/menu-support.php';
 include_once 'includes/image-support.php';
 include_once 'includes/custom-posts.php';
 include_once 'includes/classes/metabox.class.php';
-include_once 'includes/metabox.php';
 include_once 'includes/widgets-area.php';
+include_once 'includes/classes/shortcodes/countdown.php';
 
 /* Custom theme option by: Diego Incerti */
 require_once 'includes/admin/index.php';
@@ -50,4 +50,34 @@ function strReplaceBegin($str, $prefix){
         $str = substr($str, strlen($prefix));
     }
     return $str;
+}
+
+
+
+
+/*
+ * Add action based on get_the_term_list()
+ * to echo the term without link
+ * 
+ */
+add_action('get_the_without_link', 'get_the_without_link');
+function get_the_without_link( $id, $taxonomy) {
+    $terms = get_the_terms( $id, $taxonomy );
+
+    if ( is_wp_error( $terms ) )
+        return $terms;
+
+    if ( empty( $terms ) )
+        return false;
+
+    foreach ( $terms as $term ) {
+        $link = get_term_link( $term, $taxonomy );
+        if ( is_wp_error( $link ) )
+            return $link;
+        $term_links[] = $term->name;
+    }
+    
+    $term_links = apply_filters( "term_links-$taxonomy", $term_links );
+    
+    echo $before . join( $sep, $term_links ) . $after;
 }

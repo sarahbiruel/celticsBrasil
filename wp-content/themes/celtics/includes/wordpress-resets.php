@@ -80,4 +80,13 @@ function modify_jquery() {
 }
 add_action('init', 'modify_jquery');
 
-
+/*
+ * Remove post title from 'sp_event'
+ * This is a reset for Sportpress plugin
+ * 
+ * @see https://wordpress.org/plugins/sportspress/
+ */
+function mvandemar_remove_post_type_support() {
+    remove_post_type_support( 'sp_event', 'title' );
+}
+add_action( 'init', 'mvandemar_remove_post_type_support' );
