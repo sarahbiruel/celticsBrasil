@@ -66,7 +66,6 @@
   }
   .comments-number{
     font-size: 44px;
-    padding: 0 18px;
   }
   li:nth-child(even){
     .thumb{
@@ -118,6 +117,9 @@
       top: 0;
       a{        
         padding: 38px 0;
+      }
+      span{
+        padding: 0 10px;
       }
     }
     li:nth-child(even){
@@ -172,16 +174,20 @@
     margin-top: 20px;
     ul{
       margin-top: -10px;
+      overflow: hidden;
     }
     li{
-      border-bottom: 1px solid $border-default-color;
+      border-top: 1px solid $border-default-color;
       clear: both;
+      display: block;
       height: 85px;
-      &:last-child{
-        border: 0;
+      &:first-child{
+        margin-top: -1px;
       }
     }
     .mini-thumb{
+      clear: both;
+      display: block;
       float: left;
       margin: 10px 15px 0 0;
     }

@@ -1,3 +1,11 @@
+/**
+ * Countdown By: Diego Incerti
+ * http://diegoincerti.com.br/
+ *
+ * Copyright (c) 2014 Diego Incerti
+ * Licensed under the GPLv2+ license.
+ */
+
 (function($) {
 	$.fn.countdown = function(settings) {
 		var config = {
@@ -15,7 +23,7 @@
 		var childrenIndex = elements.first().find('> *').length - config.offsetIndex;
 		var maxValue = 9;
 
-		/*
+		/**
 		 * Decrement the numbers usin recursion
 		 *
 		 * var elementIndex for the day, hour, min, sec.. container
@@ -58,7 +66,6 @@
 
 			} else {
 				currentValue--;
-				alert(currentValue);
 				elements.eq(elementIndex).find('> *').eq(childrenIndex).html(currentValue);
 			}
 

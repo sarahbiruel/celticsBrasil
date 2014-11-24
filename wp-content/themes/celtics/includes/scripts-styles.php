@@ -10,7 +10,7 @@
 
 function scripts_styles() {
    $postfix = (defined('SCRIPT_DEBUG') && true === SCRIPT_DEBUG) ? '' : '.min';
-
+   $postfix = '';
     
     wp_enqueue_script('celtics_brasil', get_template_directory_uri() . "/assets/js/celtics_brasil{$postfix}.js", array('jquery'), _VERSION, true);
     

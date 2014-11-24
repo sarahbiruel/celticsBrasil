@@ -5,7 +5,7 @@
  * Copyright (c) 2014 Mamweb (Diego Incerti)
  * Licensed under the GPLv2+ license.
  */
-
+ 
 (function(window, undefined) {
 	'use strict';
 
@@ -13,22 +13,10 @@
 
 	/*
 	 * Next Match Timer
-	 *
 	 */
-	function showMatchTimer() {
-		var containerPosition = $('.container').offset().left + 15;
-		//15 = padding
-		var matchWidth = $('.match-timer').outerWidth() + $('.next-match').outerWidth();
-		var newWidth = containerPosition + matchWidth;
-		$('.match-container').width(newWidth).animate({
-			'left' : 0
-		}, 500);
 
-		// call my countdown
-		$('.match-timer').countdown({
-			delay : 1000
-		});
-	}
+	var match = new MatchTimer('.match-container');
+	var matchObjs = ['.match-timer', '.next-match'];
 
 	/*
 	 * See More
@@ -59,12 +47,63 @@
 	 * Main menu functions
 	 */
 
-	/* $('.header-menu').dlmenu({
-	 animationClasses : {
-	 classin : 'dl-animate-in-5',
-	 classout : 'dl-animate-out-5'
-	 }
-	 }); */
+	$('.header-menu').dlmenu({
+		animationClasses : {
+			classin : 'dl-animate-in-5',
+			classout : 'dl-animate-out-5'
+		}
+	});
+
+	/*
+	 * Countdown plugin
+	 * By: Diego Incerti
+	 */
+	$('.match-timer').countdown();
+
+	/*
+	 * Ajax Post loader
+	 * By: Diego Incerti
+	 */
+
+	$('#home-news').postLoader({
+		trigger : '.see-more',
+		contentAppend : 'ul',
+		postsNumber : 5,
+		maxLoads : 4,
+		animationDuration : 1000,
+		baseUrl : $('.header-logo a').attr('href'),
+		template : 'wp-content/themes/celtics/includes/templates/home-news.php'
+	});
+
+	function scroll(obj, trigger) {
+		var height = $(obj).find('> *').first().height();
+		var marginTop = height + 1;
+		var ulHeight = 0;
+		$(obj).each(function() {
+			var lenght = $(this).find('> *').length;
+			ulHeight = lenght >= 4 ? ulHeight = height * 4 : ulHeight = height * lenght;
+			$(this).height(ulHeight);
+		});
+		$(trigger).click(function(e) {
+			e.preventDefault();
+			$(obj + ':visible').find('> *:first-child').animate({
+				marginTop : '-' + marginTop
+			}, 300, function() {
+				var clone = $(this).clone();
+				$(this).remove();
+				$(obj + ':visible').append(clone);
+				$(obj + ':visible').find('> *:last-child').animate({
+					marginTop : '-1px'
+				});
+			});
+		});
+	}
+
+	/*
+	 * Single Team slider
+	 */
+	var teamSlider = new Team($("#players .player-description"));
+	teamSlider.setUrl(playersUrl);
 
 	/*
 	 * Resize functions & trigger
@@ -72,11 +111,64 @@
 
 	$(window).resize(function() {
 		featuredHeight();
-		showMatchTimer();
+		var extraSize = $('.container').offset().left + 15;
+		match.setMatchWidthObj(matchObjs);
+		match.showMatch(0, 500, extraSize);
 		seeMoreWidth();
 	});
+
 	$(window).load(function() {
 		$(window).resize();
+		scroll('#home-category .categories-news ul', '#home-category .see-more');
+
+		$('.players-carousel').carouFredSel({
+			items : {
+				visible : 5
+			},
+			transition : true,
+			responsive : true,
+			prev : {
+				button : '.featured-nav .prev',
+				onBefore : function() {
+					$('.player').removeClass('scale1 scale2');
+					$('.player:nth-child(2), .player:nth-child(4)').addClass('scale1');
+					$('.player:nth-child(3)').addClass('scale2');
+				}
+			},
+			next : {
+				button : '.featured-nav .next',
+				onBefore : function() {
+					$('.player').removeClass('scale1 scale2');
+					$('.player:nth-child(3), .player:nth-child(5)').addClass('scale1');
+					$('.player:nth-child(4)').addClass('scale2');
+				}
+			},
+			auto : false,
+			swipe : {
+				onTouch : true
+			},
+			scroll : {
+				fx : 'directscroll',
+				items : 1,
+				easing : 'linear',
+				pauseOnHover : true,
+				onBefore : function() {
+					console.log(teamSlider.obj);
+					teamSlider.obj.fadeTo("slow", 0.5);
+				},
+				onAfter : function() {
+					var playerId = $('#players .player:nth-child(3)').attr('data-id');
+					teamSlider.setId(playerId);
+					teamSlider.getDescription();
+					teamSlider.obj.fadeTo("slow", 1);
+				}
+			},
+			onCreate : function() {
+				var playerId = $('#players .player:nth-child(3)').attr('data-id');
+				teamSlider.setId(playerId);
+				teamSlider.getDescription();
+			}
+		});
 	});
 
 })(this);

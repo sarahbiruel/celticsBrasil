@@ -1,0 +1,111 @@
+#players{
+  margin-top: 80px;
+  .category{
+    position: relative;
+    z-index: 2;
+    p {
+      margin: 0;
+    }
+    > p {
+      margin: 20px 0 10px;
+      font-family: $text-font;
+    }
+    li {
+      display: inline-block;
+      a {
+        background: $primary-color;
+        color: #fff;
+        display: block;
+        line-height: 1;
+        padding: 12px 10px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover {
+          background: lighten($primary-color,2%);            
+        }
+      }
+      &:nth-child(odd) a{
+        background: darken($primary-color,6%);
+        &:hover {
+          background: darken($primary-color,8%);            
+        }
+      }
+      &:first-child a{
+        background: $secondary-color;
+        &:hover {
+          background: darken($secondary-color,2%);            
+        }
+      }
+    }
+  }
+  .player-description{
+    background: $primary-color;
+    display: inline-block;
+    float: right;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    > div {
+      color: #fff;
+      font-weight: 600;
+      margin: 0;
+    }
+    a{
+      color: $light-color;
+    }
+    .number{
+      float: left;
+      font-size: 80px;
+      line-height: 0.8em;
+      margin-right: 20px;
+    }
+    .info{
+      float: left;
+      line-height: 2em;
+    }
+    .name{
+      font-size: 30px;
+    }
+    .position {
+      font-size: 18px;
+    }
+    .see-statistics {
+      font-weight: 400;
+    }
+    .featured-nav{      
+      bottom: -60px;
+      right: 0;
+    }
+    .sprite-feature-capition-shadow{
+      bottom: -14px;
+      right: 55px;
+    }
+  }
+  .carousel-container{
+    margin-top: -200px;
+    position: relative;
+    z-index: 1;
+  }
+  .player{
+    display: inline-block;
+    height: 550px;
+    position: relative;
+    -webkit-transition: all ease 500ms;
+    -webkit-transform: scale(1);
+    margin-right: -2px;
+    img{
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  .scale1{
+    -webkit-transform: scale(1.5) translateY(-92px);
+    z-index: 2;
+  }
+  .scale2{
+    -webkit-transform: scale(2) translateY(-137px);
+    z-index: 3;
+  }
+}

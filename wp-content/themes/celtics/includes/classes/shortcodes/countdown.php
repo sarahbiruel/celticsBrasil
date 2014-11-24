@@ -19,7 +19,7 @@ If (is_plugin_active('sportspress/sportspress.php')) {
             if ( ! isset( $atts['id'] ) && isset( $atts[0] ) && is_numeric( $atts[0] ) )
                 $atts['id'] = $atts[0];
     
-            sp_get_template( '/includes/countdown.php', $atts, get_stylesheet_directory_uri() );
+            sp_get_template( '/includes/templates/countdown.php', $atts, get_stylesheet_directory_uri() );
         }
     }
 }

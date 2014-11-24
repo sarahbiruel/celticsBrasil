@@ -1,10 +1,16 @@
 <?php
 /**
+ * Declare sportspress support
+ */
+ 
+add_theme_support( 'sportspress' );
+
+
+/**
  * Add custom style for login page.
  *
  * @since 0.1.0
  */
-
 
 function custom_login_css() {
 
@@ -35,6 +41,7 @@ function custom_login_header_url($url) {
     return 'http://mamweb.com.br/';
 
 }
+
 /**
  * Replace footer text
  *
@@ -80,13 +87,4 @@ function modify_jquery() {
 }
 add_action('init', 'modify_jquery');
 
-/*
- * Remove post title from 'sp_event'
- * This is a reset for Sportpress plugin
- * 
- * @see https://wordpress.org/plugins/sportspress/
- */
-function mvandemar_remove_post_type_support() {
-    remove_post_type_support( 'sp_event', 'title' );
-}
-add_action( 'init', 'mvandemar_remove_post_type_support' );
+

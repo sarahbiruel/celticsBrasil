@@ -1,4 +1,4 @@
-/*
+/**
  * class changeElementeVisible()
  * Hide the element visible and show the next or prev based on the data-index value
  *
@@ -36,37 +36,39 @@ function changeElementeVisible(obj) {
 
 var slideCaption = new changeElementeVisible('#home-slide .featured-capition');
 
-/*
+/**
  * Slide caroufredsel plugin
  *
  * @see http://docs.dev7studios.com/jquery-plugins/caroufredsel-advanced
  */
-$('#home-slide ul').carouFredSel({
-	items : 1,
-	transition : true,
-	responsive : true,
-	prev : {
-		button : '.prev',
-		onBefore : function(data) {
-			slideCaption.setDirection('prev');
-			slideCaption.showCaption();
-		}
-	},
-	next : '.next',
-	auto : {
-		timeoutDuration : 5000
-	},
-	swipe : {
-		onTouch : true
-	},
-	scroll : {
-		fx : 'crossfade',
+if ($('#home-slide ul').length) {
+	$('#home-slide ul').carouFredSel({
 		items : 1,
-		easing : 'linear',
-		pauseOnHover : true,
-		onBefore : function(data) {
-			slideCaption.setDirection('next');
-			slideCaption.showCaption();
+		transition : true,
+		responsive : true,
+		prev : {
+			button : '.prev',
+			onBefore : function(data) {
+				slideCaption.setDirection('prev');
+				slideCaption.showCaption();
+			}
+		},
+		next : '.next',
+		auto : {
+			timeoutDuration : 5000
+		},
+		swipe : {
+			onTouch : true
+		},
+		scroll : {
+			fx : 'crossfade',
+			items : 1,
+			easing : 'linear',
+			pauseOnHover : true,
+			onBefore : function(data) {
+				slideCaption.setDirection('next');
+				slideCaption.showCaption();
+			}
 		}
-	}
-}); 
+	});
+}

@@ -8111,14 +8111,15 @@ h2.title span:before {
 /* line 54, sass/_default.scss */
 .see-more {
   clear: both;
+  cursor: pointer;
   position: relative;
   text-align: center;
 }
-/* line 58, sass/_default.scss */
+/* line 59, sass/_default.scss */
 .see-more a {
   padding: 0 20px;
 }
-/* line 61, sass/_default.scss */
+/* line 62, sass/_default.scss */
 .see-more .before, .see-more .after {
   content: '';
   height: 1px;
@@ -8127,37 +8128,37 @@ h2.title span:before {
   top: 50%;
   width: 35%;
 }
-/* line 69, sass/_default.scss */
+/* line 70, sass/_default.scss */
 .see-more .before {
   left: 0;
 }
-/* line 72, sass/_default.scss */
+/* line 73, sass/_default.scss */
 .see-more .after {
   right: 0;
 }
-/* line 75, sass/_default.scss */
+/* line 76, sass/_default.scss */
 .see-more i {
   margin-left: 15px;
 }
 
-/* line 80, sass/_default.scss */
+/* line 81, sass/_default.scss */
 .wpcf7-form input, .wpcf7-form textarea {
   color: #003521;
   padding: 10px 15px;
   width: 100%;
 }
 
-/* line 86, sass/_default.scss */
+/* line 87, sass/_default.scss */
 span.wpcf7-not-valid-tip {
   color: white;
 }
 
-/* line 89, sass/_default.scss */
+/* line 90, sass/_default.scss */
 div.wpcf7-validation-errors {
   border-color: #59a618;
 }
 
-/* line 92, sass/_default.scss */
+/* line 93, sass/_default.scss */
 div.wpcf7-response-output {
   margin: 0;
 }
@@ -9010,32 +9011,31 @@ All this is done for any sub-level being entered.
 /* line 67, sass/_home.scss */
 .news .comments-number {
   font-size: 44px;
-  padding: 0 18px;
 }
-/* line 72, sass/_home.scss */
+/* line 71, sass/_home.scss */
 .news li:nth-child(even) .thumb {
   margin: 0;
 }
-/* line 75, sass/_home.scss */
+/* line 74, sass/_home.scss */
 .news li:nth-child(even) .text {
   margin: 0;
 }
-/* line 78, sass/_home.scss */
+/* line 77, sass/_home.scss */
 .news li:nth-child(even) .comments {
   left: 0;
   right: inherit;
 }
 @media (max-width: 992px) {
-  /* line 84, sass/_home.scss */
+  /* line 83, sass/_home.scss */
   .news a {
     line-height: 1;
   }
-  /* line 88, sass/_home.scss */
+  /* line 87, sass/_home.scss */
   .news .comments span {
     display: inline-block;
     vertical-align: middle;
   }
-  /* line 93, sass/_home.scss */
+  /* line 92, sass/_home.scss */
   .news .comments-number {
     font-size: 30px;
     padding: 0 5px 0 0;
@@ -9046,111 +9046,119 @@ All this is done for any sub-level being entered.
   .news {
     margin-top: -35px;
   }
-  /* line 99, sass/_home.scss */
+  /* line 98, sass/_home.scss */
   .news li:nth-child(even) {
     background: #59a618;
   }
-  /* line 101, sass/_home.scss */
+  /* line 100, sass/_home.scss */
   .news li:nth-child(even) .comments {
     background: #003521;
   }
-  /* line 106, sass/_home.scss */
+  /* line 105, sass/_home.scss */
   .news .thumb {
     float: left;
     margin-right: 20px;
     max-width: 361px;
   }
-  /* line 111, sass/_home.scss */
+  /* line 110, sass/_home.scss */
   .news .text {
     margin-right: 90px;
   }
-  /* line 114, sass/_home.scss */
+  /* line 113, sass/_home.scss */
   .news .comments {
     font-size: 12px;
     position: absolute;
     right: 0;
     top: 0;
   }
-  /* line 119, sass/_home.scss */
+  /* line 118, sass/_home.scss */
   .news .comments a {
     padding: 38px 0;
   }
-  /* line 124, sass/_home.scss */
+  /* line 121, sass/_home.scss */
+  .news .comments span {
+    padding: 0 10px;
+  }
+  /* line 126, sass/_home.scss */
   .news li:nth-child(even) .thumb {
     float: right;
     margin-left: 20px;
   }
-  /* line 128, sass/_home.scss */
+  /* line 130, sass/_home.scss */
   .news li:nth-child(even) .text {
     margin: 0;
     margin-left: 90px;
   }
 }
 
-/* line 135, sass/_home.scss */
+/* line 137, sass/_home.scss */
 #home-category {
   margin-bottom: 65px;
 }
-/* line 137, sass/_home.scss */
+/* line 139, sass/_home.scss */
 #home-category .categories {
   margin-top: 20px;
   font-size: 18px;
   font-weight: 600;
 }
-/* line 143, sass/_home.scss */
+/* line 145, sass/_home.scss */
 #home-category .categories li {
   background: #59a618;
   line-height: 1em;
   position: relative;
 }
-/* line 147, sass/_home.scss */
+/* line 149, sass/_home.scss */
 #home-category .categories li:nth-child(even) {
   background: #4b8b14;
 }
-/* line 150, sass/_home.scss */
+/* line 152, sass/_home.scss */
 #home-category .categories li:hover, #home-category .categories li.active {
   background: #003521;
 }
-/* line 157, sass/_home.scss */
+/* line 159, sass/_home.scss */
 #home-category .categories a {
   color: white;
   display: block;
   padding: 15px 20px;
 }
-/* line 161, sass/_home.scss */
+/* line 163, sass/_home.scss */
 #home-category .categories a:hover {
   color: white;
   text-decoration: none;
 }
-/* line 166, sass/_home.scss */
+/* line 168, sass/_home.scss */
 #home-category .categories i {
   position: absolute;
   right: 20px;
 }
-/* line 171, sass/_home.scss */
+/* line 173, sass/_home.scss */
 #home-category .categories-news {
   margin-top: 20px;
 }
-/* line 173, sass/_home.scss */
+/* line 175, sass/_home.scss */
 #home-category .categories-news ul {
   margin-top: -10px;
+  overflow: hidden;
 }
-/* line 176, sass/_home.scss */
+/* line 179, sass/_home.scss */
 #home-category .categories-news li {
-  border-bottom: 1px solid #888888;
+  border-top: 1px solid #888888;
   clear: both;
+  display: block;
   height: 85px;
 }
-/* line 180, sass/_home.scss */
-#home-category .categories-news li:last-child {
-  border: 0;
-}
 /* line 184, sass/_home.scss */
+#home-category .categories-news li:first-child {
+  margin-top: -1px;
+}
+/* line 188, sass/_home.scss */
 #home-category .categories-news .mini-thumb {
+  clear: both;
+  display: block;
   float: left;
   margin: 10px 15px 0 0;
 }
-/* line 188, sass/_home.scss */
+/* line 194, sass/_home.scss */
 #home-category .categories-news h4 {
   position: relative;
   top: 50%;
@@ -9159,75 +9167,75 @@ All this is done for any sub-level being entered.
   transform: translateY(-50%);
   margin: 0;
 }
-/* line 195, sass/_home.scss */
+/* line 201, sass/_home.scss */
 #home-category .categories-news h4 a {
   color: #003521;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
 
-/* line 205, sass/_home.scss */
+/* line 211, sass/_home.scss */
 #home-widget {
   margin-bottom: 65px;
 }
 
-/* line 208, sass/_home.scss */
+/* line 214, sass/_home.scss */
 .wp-polls {
   color: #555555;
   /*
    * Reset plugin wp-poll
    */
 }
-/* line 210, sass/_home.scss */
+/* line 216, sass/_home.scss */
 .wp-polls .wp-polls-ul {
   margin: 0;
 }
-/* line 213, sass/_home.scss */
+/* line 219, sass/_home.scss */
 .wp-polls h4 {
   margin-bottom: 15px;
   font-size: 18px;
   font-weight: 600;
 }
-/* line 220, sass/_home.scss */
+/* line 226, sass/_home.scss */
 .wp-polls li {
   border-bottom: 1px solid #888888;
   color: #003521;
 }
-/* line 223, sass/_home.scss */
+/* line 229, sass/_home.scss */
 .wp-polls li:last-child {
   border: 0;
 }
-/* line 227, sass/_home.scss */
+/* line 233, sass/_home.scss */
 .wp-polls input {
   margin: 0;
   vertical-align: middle;
 }
-/* line 231, sass/_home.scss */
+/* line 237, sass/_home.scss */
 .wp-polls label {
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin-left: 10px;
 }
-/* line 242, sass/_home.scss */
+/* line 248, sass/_home.scss */
 .wp-polls .btn {
   display: inline-block !important;
   margin: 10px 10px 0 0;
   padding: 15px 15px !important;
 }
 @media (min-width: 1200px) {
-  /* line 248, sass/_home.scss */
+  /* line 254, sass/_home.scss */
   .wp-polls .btn {
     padding: 20px 30px !important;
   }
 }
 
-/* line 254, sass/_home.scss */
+/* line 260, sass/_home.scss */
 .wp-polls-ans li {
   padding: 15px 0;
 }
 
-/* line 257, sass/_home.scss */
+/* line 263, sass/_home.scss */
 .wp-polls .pollbar {
   background: #59a618 !important;
   height: 15px !important;
@@ -9582,4 +9590,142 @@ All this is done for any sub-level being entered.
     margin-top: 45px;
     text-align: right;
   }
+}
+
+/* line 1, sass/_single-team.scss */
+#players {
+  margin-top: 80px;
+}
+/* line 3, sass/_single-team.scss */
+#players .category {
+  position: relative;
+  z-index: 2;
+}
+/* line 6, sass/_single-team.scss */
+#players .category p {
+  margin: 0;
+}
+/* line 9, sass/_single-team.scss */
+#players .category > p {
+  margin: 20px 0 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* line 13, sass/_single-team.scss */
+#players .category li {
+  display: inline-block;
+}
+/* line 15, sass/_single-team.scss */
+#players .category li a {
+  background: #59a618;
+  color: #fff;
+  display: block;
+  line-height: 1;
+  padding: 12px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* line 24, sass/_single-team.scss */
+#players .category li a:hover {
+  background: #5eaf19;
+}
+/* line 28, sass/_single-team.scss */
+#players .category li:nth-child(odd) a {
+  background: #4b8b14;
+}
+/* line 30, sass/_single-team.scss */
+#players .category li:nth-child(odd) a:hover {
+  background: #468213;
+}
+/* line 34, sass/_single-team.scss */
+#players .category li:first-child a {
+  background: #003521;
+}
+/* line 36, sass/_single-team.scss */
+#players .category li:first-child a:hover {
+  background: #002b1b;
+}
+/* line 42, sass/_single-team.scss */
+#players .player-description {
+  background: #59a618;
+  display: inline-block;
+  float: right;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+/* line 50, sass/_single-team.scss */
+#players .player-description > div {
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+}
+/* line 55, sass/_single-team.scss */
+#players .player-description a {
+  color: white;
+}
+/* line 58, sass/_single-team.scss */
+#players .player-description .number {
+  float: left;
+  font-size: 80px;
+  line-height: 0.8em;
+  margin-right: 20px;
+}
+/* line 64, sass/_single-team.scss */
+#players .player-description .info {
+  float: left;
+  line-height: 2em;
+}
+/* line 68, sass/_single-team.scss */
+#players .player-description .name {
+  font-size: 30px;
+}
+/* line 71, sass/_single-team.scss */
+#players .player-description .position {
+  font-size: 18px;
+}
+/* line 74, sass/_single-team.scss */
+#players .player-description .see-statistics {
+  font-weight: 400;
+}
+/* line 77, sass/_single-team.scss */
+#players .player-description .featured-nav {
+  bottom: -60px;
+  right: 0;
+}
+/* line 81, sass/_single-team.scss */
+#players .player-description .sprite-feature-capition-shadow {
+  bottom: -14px;
+  right: 55px;
+}
+/* line 86, sass/_single-team.scss */
+#players .carousel-container {
+  margin-top: -200px;
+  position: relative;
+  z-index: 1;
+}
+/* line 91, sass/_single-team.scss */
+#players .player {
+  display: inline-block;
+  height: 550px;
+  position: relative;
+  -webkit-transition: all ease 500ms;
+  -webkit-transform: scale(1);
+  margin-right: -2px;
+}
+/* line 98, sass/_single-team.scss */
+#players .player img {
+  position: absolute;
+  bottom: 0;
+}
+/* line 103, sass/_single-team.scss */
+#players .scale1 {
+  -webkit-transform: scale(1.5) translateY(-92px);
+  z-index: 2;
+}
+/* line 107, sass/_single-team.scss */
+#players .scale2 {
+  -webkit-transform: scale(2) translateY(-137px);
+  z-index: 3;
 }

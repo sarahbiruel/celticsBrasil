@@ -15,6 +15,8 @@
  // Useful global constants
 define( '_VERSION', '0.1.0' );
 
+add_action( 'wp_ajax_my_action', 'my_action_callback' );
+add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
 
 include_once 'includes/wordpress-resets.php';
 include_once 'includes/scripts-styles.php';
@@ -24,6 +26,7 @@ include_once 'includes/custom-posts.php';
 include_once 'includes/classes/metabox.class.php';
 include_once 'includes/widgets-area.php';
 include_once 'includes/classes/shortcodes/countdown.php';
+include_once 'sportspress/functions.php';
 
 /* Custom theme option by: Diego Incerti */
 require_once 'includes/admin/index.php';

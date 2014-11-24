@@ -10,15 +10,18 @@ module.exports = function(grunt) {
 		concat : {
 			celtics_brasil : {
 				src : [
-					//'bootstrap/assets/js/bootstrap/tab.js', 
-					//'bootstrap/assets/js/bootstrap/transition.js', 
-					//'bootstrap/assets/js/bootstrap/dropdown.js', 
-					//'bootstrap/assets/js/bootstrap/button.js', 
-					//'assets/js/src/modernizr.custom.js',
-					//'assets/js/src/jquery.dlmenu.js',  
+					'bootstrap/assets/js/bootstrap/tab.js', 
+					'bootstrap/assets/js/bootstrap/transition.js', 
+					'bootstrap/assets/js/bootstrap/dropdown.js', 
+					'bootstrap/assets/js/bootstrap/button.js', 
+					'assets/js/src/modernizr.custom.js',
+					'assets/js/src/jquery.dlmenu.js',  
 					'assets/js/src/carouFredSel.js',
 					'assets/js/src/mwSlide.js',
+					'assets/js/src/nextMatch.js',
 					'assets/js/src/di.countdown.js',
+					'assets/js/src/di.post.load.js',
+					'assets/js/src/teamSlide.js',
 					'assets/js/src/celtics_brasil.js'
 				],
 				dest : 'assets/js/celtics_brasil.js'
