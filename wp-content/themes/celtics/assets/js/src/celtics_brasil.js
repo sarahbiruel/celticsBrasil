@@ -5,7 +5,7 @@
  * Copyright (c) 2014 Mamweb (Diego Incerti)
  * Licensed under the GPLv2+ license.
  */
- 
+
 (function(window, undefined) {
 	'use strict';
 
@@ -130,6 +130,7 @@
 			prev : {
 				button : '.featured-nav .prev',
 				onBefore : function() {
+					teamSlider.descriptionObj.fadeTo("slow", 0.5);
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(2), .player:nth-child(4)').addClass('scale1');
 					$('.player:nth-child(3)').addClass('scale2');
@@ -138,6 +139,7 @@
 			next : {
 				button : '.featured-nav .next',
 				onBefore : function() {
+					teamSlider.descriptionObj.fadeTo("slow", 0.5);
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(3), .player:nth-child(5)').addClass('scale1');
 					$('.player:nth-child(4)').addClass('scale2');
@@ -152,15 +154,10 @@
 				items : 1,
 				easing : 'linear',
 				pauseOnHover : true,
-				onBefore : function() {
-					console.log(teamSlider.obj);
-					teamSlider.obj.fadeTo("slow", 0.5);
-				},
 				onAfter : function() {
 					var playerId = $('#players .player:nth-child(3)').attr('data-id');
 					teamSlider.setId(playerId);
 					teamSlider.getDescription();
-					teamSlider.obj.fadeTo("slow", 1);
 				}
 			},
 			onCreate : function() {

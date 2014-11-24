@@ -49,20 +49,20 @@ class CFDBViewShortCodeBuilder extends CFDBView {
         //        }
 
         // Collect any values in $_REQUEST to pre-populate the page controls
-        $postedForm = isset($_REQUEST['form']) ? $_REQUEST['form'] : '';
-        $postedEnc = isset($_REQUEST['enc']) ? $_REQUEST['enc'] : '';
-        $postedSC = isset($_REQUEST['sc']) ? ('[' . $_REQUEST['sc'] . ']') : '';
-        $postedTrans = isset($_REQUEST['trans']) ? ($_REQUEST['trans']) : '';
-        $postedShow = isset($_REQUEST['show']) ? ($_REQUEST['show']) : '';
-        $postedHide = isset($_REQUEST['hide']) ? ($_REQUEST['hide']) : '';
-        $postedRole = isset($_REQUEST['role']) ? ($_REQUEST['role']) : '';
-        $postedPermissionmsg = isset($_REQUEST['permissionmsg']) ? ($_REQUEST['permissionmsg']) : '';
-        $postedSearch = isset($_REQUEST['search']) ? ($_REQUEST['search']) : '';
-        $postedFilter = isset($_REQUEST['filter']) ? ($_REQUEST['filter']) : '';
-        $postedTSearch = isset($_REQUEST['tsearch']) ? ($_REQUEST['tsearch']) : '';
-        $postedTFilter = isset($_REQUEST['tfilter']) ? ($_REQUEST['tfilter']) : '';
-        $postedLimit = isset($_REQUEST['limit']) ? ($_REQUEST['limit']) : '';
-        $postedTLimit = isset($_REQUEST['tlimit']) ? ($_REQUEST['tlimit']) : '';
+        $postedForm = strip_tags(isset($_REQUEST['form']) ? $_REQUEST['form'] : '');
+        $postedEnc = strip_tags(isset($_REQUEST['enc']) ? $_REQUEST['enc'] : '');
+        $postedSC = strip_tags(isset($_REQUEST['sc']) ? ('[' . $_REQUEST['sc'] . ']') : '');
+        $postedTrans = strip_tags(isset($_REQUEST['trans']) ? ($_REQUEST['trans']) : '');
+        $postedShow = strip_tags(isset($_REQUEST['show']) ? ($_REQUEST['show']) : '');
+        $postedHide = strip_tags(isset($_REQUEST['hide']) ? ($_REQUEST['hide']) : '');
+        $postedRole = strip_tags(isset($_REQUEST['role']) ? ($_REQUEST['role']) : '');
+        $postedPermissionmsg = strip_tags(isset($_REQUEST['permissionmsg']) ? ($_REQUEST['permissionmsg']) : '');
+        $postedSearch = strip_tags(isset($_REQUEST['search']) ? ($_REQUEST['search']) : '');
+        $postedFilter = strip_tags(isset($_REQUEST['filter']) ? ($_REQUEST['filter']) : '');
+        $postedTSearch = strip_tags(isset($_REQUEST['tsearch']) ? ($_REQUEST['tsearch']) : '');
+        $postedTFilter = strip_tags(isset($_REQUEST['tfilter']) ? ($_REQUEST['tfilter']) : '');
+        $postedLimit = strip_tags(isset($_REQUEST['limit']) ? ($_REQUEST['limit']) : '');
+        $postedTLimit = strip_tags(isset($_REQUEST['tlimit']) ? ($_REQUEST['tlimit']) : '');
 
         $postedLimitComponents = explode(',', $postedLimit);
         $postedLimitStart = '';

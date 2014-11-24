@@ -1,5 +1,13 @@
 {
 	"name":				"Volleyball",
+	"positions": [
+						"Outside Hitter",
+						"Middle Blocker",
+						"Setter",
+						"Opposite",
+						"Defensive Specialist",
+						"Libero"
+	],
 	"outcomes": [
 						"Win",
 						"Loss",
@@ -34,8 +42,7 @@
 						{ "name" : "Ratio", "equation" : "$pointsfor / $pointsagainst", "precision" : 3, "priority" : 2 }
 	],
 	"metrics": [
-						"Height",
-						"Weight"
+						"Height"
 	],
 	"statistics": [
 						{ "name" : "Pct", "equation" : "( $k - $e ) / $ta", "description" : "Hitting percentage" },

@@ -7,7 +7,7 @@
  * @author 		ThemeBoy
  * @category 	Admin
  * @package 	SportsPress/Admin/Meta_Boxes
- * @version     1.3.1
+ * @version     1.4.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -131,6 +131,9 @@ class SP_Admin_Meta_Boxes {
 
 		// Calendars
 		add_meta_box( 'sp_shortcodediv', __( 'Shortcode', 'sportspress' ), 'SP_Meta_Box_Calendar_Shortcode::output', 'sp_calendar', 'side', 'default' );
+		if ( isset( $post ) && 'publish' == $post->post_status ):
+			add_meta_box( 'sp_feedsdiv', __( 'Feeds', 'sportspress' ), 'SP_Meta_Box_Calendar_Feeds::output', 'sp_calendar', 'side', 'default' );
+		endif;
 		add_meta_box( 'sp_formatdiv', __( 'Layout', 'sportspress' ), 'SP_Meta_Box_Calendar_Format::output', 'sp_calendar', 'side', 'default' );
 		add_meta_box( 'sp_detailsdiv', __( 'Details', 'sportspress' ), 'SP_Meta_Box_Calendar_Details::output', 'sp_calendar', 'side', 'default' );
 		add_meta_box( 'sp_datadiv', __( 'Events', 'sportspress' ), 'SP_Meta_Box_Calendar_Data::output', 'sp_calendar', 'normal', 'high' );
@@ -170,6 +173,7 @@ class SP_Admin_Meta_Boxes {
 		add_meta_box( 'sp_editordiv', __( 'Description', 'sportspress' ), 'SP_Meta_Box_List_Editor::output', 'sp_list', 'normal', 'low' );
 
 		// Staff
+		add_meta_box( 'sp_shortcodediv', __( 'Shortcode', 'sportspress' ), 'SP_Meta_Box_Staff_Shortcode::output', 'sp_staff', 'side', 'default' );
 		add_meta_box( 'sp_detailsdiv', __( 'Details', 'sportspress' ), 'SP_Meta_Box_Staff_Details::output', 'sp_staff', 'side', 'default' );
 		add_meta_box( 'sp_editordiv', __( 'Profile', 'sportspress' ), 'SP_Meta_Box_Staff_Editor::output', 'sp_staff', 'normal', 'low' );
 	}
@@ -208,6 +212,7 @@ class SP_Admin_Meta_Boxes {
 		remove_meta_box( 'sp_leaguediv', 'sp_list', 'side' );
 
 		// Staff
+		remove_meta_box( 'sp_rolediv', 'sp_staff', 'side' );
 		remove_meta_box( 'sp_seasondiv', 'sp_staff', 'side' );
 		remove_meta_box( 'sp_leaguediv', 'sp_staff', 'side' );
 	}

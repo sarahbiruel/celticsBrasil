@@ -1011,10 +1011,11 @@ var MatchTimer = function(obj) {
 	};
 })(jQuery);
 
-var Team = function(elementObj) {
-	this.obj = elementObj;
+var Team = function(elementDescriptionObj) {
+	this.descriptionObj = elementDescriptionObj;
+	this.carouselObj = '';
 	var ajaxUrl = '';
-	var playerId = '';
+	var playerId = '';	
 
 	this.setUrl = function(newUrl) {
 		ajaxUrl = newUrl;
@@ -1023,9 +1024,13 @@ var Team = function(elementObj) {
 	this.setId = function(newid) {
 		playerId = newid;
 	};
+	
+	this.setCarousel = function(newCarouselObj) {
+		this.carouselObj = newCarouselObj;
+	};
 
 	this.getDescription = function() {
-		var obj = this.obj;
+		var descriptionObj = this.descriptionObj;
 		$.ajax({
 			type : "POST",
 			url : ajaxUrl,
@@ -1035,12 +1040,14 @@ var Team = function(elementObj) {
 			},
 			cache : false,
 			success : function(data) {
+				data.id = data.id ? data.id : '';
 				data.number = data.number ? data.number : '';
 				data.name = data.name ? data.name : '';
 				data.position = data.position['name'] && data.position['description'] ? data.position['name'] + ' (' + data.position['description'] + ')' : '';
-				obj.find('.number').html(data.number);
-				obj.find('.name').html(data.name);
-				obj.find('.position').html(data.position);
+				descriptionObj.find('.number').html(data.number);
+				descriptionObj.find('.name').html(data.name);
+				descriptionObj.find('.position').html(data.position);
+				descriptionObj.find('.see-statistics a').attr("href", '#' + data.id).end().fadeTo("slow", 1);				
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log(textStatus, errorThrown);
@@ -1056,7 +1063,7 @@ var Team = function(elementObj) {
  * Copyright (c) 2014 Mamweb (Diego Incerti)
  * Licensed under the GPLv2+ license.
  */
- 
+
 (function(window, undefined) {
 	'use strict';
 
@@ -1181,6 +1188,7 @@ var Team = function(elementObj) {
 			prev : {
 				button : '.featured-nav .prev',
 				onBefore : function() {
+					teamSlider.descriptionObj.fadeTo("slow", 0.5);
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(2), .player:nth-child(4)').addClass('scale1');
 					$('.player:nth-child(3)').addClass('scale2');
@@ -1189,6 +1197,7 @@ var Team = function(elementObj) {
 			next : {
 				button : '.featured-nav .next',
 				onBefore : function() {
+					teamSlider.descriptionObj.fadeTo("slow", 0.5);
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(3), .player:nth-child(5)').addClass('scale1');
 					$('.player:nth-child(4)').addClass('scale2');
@@ -1203,15 +1212,10 @@ var Team = function(elementObj) {
 				items : 1,
 				easing : 'linear',
 				pauseOnHover : true,
-				onBefore : function() {
-					console.log(teamSlider.obj);
-					teamSlider.obj.fadeTo("slow", 0.5);
-				},
 				onAfter : function() {
 					var playerId = $('#players .player:nth-child(3)').attr('data-id');
 					teamSlider.setId(playerId);
 					teamSlider.getDescription();
-					teamSlider.obj.fadeTo("slow", 1);
 				}
 			},
 			onCreate : function() {
