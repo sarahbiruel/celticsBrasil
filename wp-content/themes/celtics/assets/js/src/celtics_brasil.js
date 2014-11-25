@@ -103,6 +103,7 @@
 	 * Single Team slider
 	 */
 	var teamSlider = new Team($("#players .player-description"));
+	if ($("#players").length)
 	teamSlider.setUrl(playersUrl);
 
 	/*
