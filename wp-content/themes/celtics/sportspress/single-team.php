@@ -70,8 +70,13 @@ get_header();
                                        $class = 'scale2';
                                    else
                                        $class = '';
+                                   
+                                   /* get position */
+                                   
+                                    $term_list = wp_get_post_terms($post->ID, 'sp_position');
+                                    $position = $term_list[0] -> slug;
                         ?>
-                        <div class="player <?php echo $class; ?>" data-id="<?php echo the_ID(); ?>"><?php the_post_thumbnail('team', array('class' => 'img-responsive')); ?></div>
+                        <div class="player <?php echo $class; ?>" data-id="<?php echo the_ID(); ?>" data-position="<?php echo $position; ?>"><?php the_post_thumbnail('team', array('class' => 'img-responsive')); ?></div>
                         <?php 
                                 }
                                 $i++;

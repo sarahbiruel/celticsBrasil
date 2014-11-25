@@ -100,13 +100,6 @@
 	}
 
 	/*
-	 * Single Team slider
-	 */
-	var teamSlider = new Team($("#players .player-description"));
-	if ($("#players").length)
-	teamSlider.setUrl(playersUrl);
-
-	/*
 	 * Resize functions & trigger
 	 */
 
@@ -122,53 +115,7 @@
 		$(window).resize();
 		scroll('#home-category .categories-news ul', '#home-category .see-more');
 
-		$('.players-carousel').carouFredSel({
-			items : {
-				visible : 5
-			},
-			transition : true,
-			responsive : true,
-			prev : {
-				button : '.featured-nav .prev',
-				onBefore : function() {
-					var playerId = $('#players .player:nth-child(3)').attr('data-id');
-					teamSlider.setId(playerId);
-					teamSlider.getDescription();
-					$('.player').removeClass('scale1 scale2');
-					$('.player:nth-child(2), .player:nth-child(4)').addClass('scale1');
-					$('.player:nth-child(3)').addClass('scale2');
-				}
-			},
-			next : {
-				button : '.featured-nav .next',
-				onBefore : function() {
-					var playerId = $('#players .player:nth-child(4)').attr('data-id');
-					teamSlider.setId(playerId);
-					teamSlider.getDescription();
-					$('.player').removeClass('scale1 scale2');
-					$('.player:nth-child(3), .player:nth-child(5)').addClass('scale1');
-					$('.player:nth-child(4)').addClass('scale2');
-				}
-			},
-			auto : false,
-			swipe : {
-				onTouch : true
-			},
-			scroll : {
-				fx : 'directscroll',
-				items : 1,
-				easing : 'linear',
-				pauseOnHover : true,
-				conditions : function () {
-					return teamSlider.descriptionObj.hasClass('no-click') ? false : true;
-				}
-			},
-			onCreate : function() {
-				var playerId = $('#players .player:nth-child(3)').attr('data-id');
-				teamSlider.setId(playerId);
-				teamSlider.getDescription();
-			}
-		});
+		
 	});
 
 })(this);
