@@ -130,7 +130,9 @@
 			prev : {
 				button : '.featured-nav .prev',
 				onBefore : function() {
-					teamSlider.descriptionObj.fadeTo("slow", 0.5);
+					var playerId = $('#players .player:nth-child(3)').attr('data-id');
+					teamSlider.setId(playerId);
+					teamSlider.getDescription();
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(2), .player:nth-child(4)').addClass('scale1');
 					$('.player:nth-child(3)').addClass('scale2');
@@ -139,7 +141,9 @@
 			next : {
 				button : '.featured-nav .next',
 				onBefore : function() {
-					teamSlider.descriptionObj.fadeTo("slow", 0.5);
+					var playerId = $('#players .player:nth-child(4)').attr('data-id');
+					teamSlider.setId(playerId);
+					teamSlider.getDescription();
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(3), .player:nth-child(5)').addClass('scale1');
 					$('.player:nth-child(4)').addClass('scale2');
@@ -154,10 +158,8 @@
 				items : 1,
 				easing : 'linear',
 				pauseOnHover : true,
-				onAfter : function() {
-					var playerId = $('#players .player:nth-child(3)').attr('data-id');
-					teamSlider.setId(playerId);
-					teamSlider.getDescription();
+				conditions : function () {
+					return teamSlider.descriptionObj.hasClass('no-click') ? false : true;
 				}
 			},
 			onCreate : function() {

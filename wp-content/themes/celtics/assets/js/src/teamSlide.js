@@ -18,8 +18,9 @@ var Team = function(elementDescriptionObj) {
 
 	this.getDescription = function() {
 		var descriptionObj = this.descriptionObj;
+		descriptionObj.fadeTo('slow', 0.75).addClass('no-click');
 		$.ajax({
-			type : "POST",
+			type : 'POST',
 			url : ajaxUrl,
 			dataType : 'json',
 			data : {
@@ -34,7 +35,7 @@ var Team = function(elementDescriptionObj) {
 				descriptionObj.find('.number').html(data.number);
 				descriptionObj.find('.name').html(data.name);
 				descriptionObj.find('.position').html(data.position);
-				descriptionObj.find('.see-statistics a').attr("href", '#' + data.id).end().fadeTo("slow", 1);				
+				descriptionObj.find('.see-statistics a').attr('href', '#' + data.id).end().fadeTo("slow", 1).removeClass('no-click');				
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log(textStatus, errorThrown);

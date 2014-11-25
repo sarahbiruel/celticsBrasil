@@ -1031,8 +1031,9 @@ var Team = function(elementDescriptionObj) {
 
 	this.getDescription = function() {
 		var descriptionObj = this.descriptionObj;
+		descriptionObj.fadeTo('slow', 0.75).addClass('no-click');
 		$.ajax({
-			type : "POST",
+			type : 'POST',
 			url : ajaxUrl,
 			dataType : 'json',
 			data : {
@@ -1047,7 +1048,7 @@ var Team = function(elementDescriptionObj) {
 				descriptionObj.find('.number').html(data.number);
 				descriptionObj.find('.name').html(data.name);
 				descriptionObj.find('.position').html(data.position);
-				descriptionObj.find('.see-statistics a').attr("href", '#' + data.id).end().fadeTo("slow", 1);				
+				descriptionObj.find('.see-statistics a').attr('href', '#' + data.id).end().fadeTo("slow", 1).removeClass('no-click');				
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log(textStatus, errorThrown);
@@ -1188,7 +1189,9 @@ var Team = function(elementDescriptionObj) {
 			prev : {
 				button : '.featured-nav .prev',
 				onBefore : function() {
-					teamSlider.descriptionObj.fadeTo("slow", 0.5);
+					var playerId = $('#players .player:nth-child(3)').attr('data-id');
+					teamSlider.setId(playerId);
+					teamSlider.getDescription();
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(2), .player:nth-child(4)').addClass('scale1');
 					$('.player:nth-child(3)').addClass('scale2');
@@ -1197,7 +1200,9 @@ var Team = function(elementDescriptionObj) {
 			next : {
 				button : '.featured-nav .next',
 				onBefore : function() {
-					teamSlider.descriptionObj.fadeTo("slow", 0.5);
+					var playerId = $('#players .player:nth-child(4)').attr('data-id');
+					teamSlider.setId(playerId);
+					teamSlider.getDescription();
 					$('.player').removeClass('scale1 scale2');
 					$('.player:nth-child(3), .player:nth-child(5)').addClass('scale1');
 					$('.player:nth-child(4)').addClass('scale2');
@@ -1212,10 +1217,8 @@ var Team = function(elementDescriptionObj) {
 				items : 1,
 				easing : 'linear',
 				pauseOnHover : true,
-				onAfter : function() {
-					var playerId = $('#players .player:nth-child(3)').attr('data-id');
-					teamSlider.setId(playerId);
-					teamSlider.getDescription();
+				conditions : function () {
+					return teamSlider.descriptionObj.hasClass('no-click') ? false : true;
 				}
 			},
 			onCreate : function() {
