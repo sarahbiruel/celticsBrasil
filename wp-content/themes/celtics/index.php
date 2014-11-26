@@ -142,7 +142,7 @@ get_header();
     						</ul>
     					</div>
     					<div class="col-sm-7">
-    						<div class="tab-content categories-news">
+    						<div class="tab-content posts-list">
                                 <?php
                                 $args = array('child_of' => 138);
                                 $categories = get_categories( $args );

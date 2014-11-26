@@ -23,6 +23,15 @@ ul{
     color: $default-type-color;
   } 
 }
+
+p {
+  font: {
+    family: $text-font;
+  }
+  color: $secondary-color;
+  margin: 10px 0px;
+}
+
 h2.title{
   border-bottom: 1px solid $border-default-color;
   color: #0C6637;
@@ -44,7 +53,7 @@ h2.title{
     }
   }
 }
-  
+
 .date-time{
   color: $default-type-color;
 }
@@ -56,6 +65,7 @@ h2.title{
   cursor: pointer;
   position: relative;
   text-align: center;
+  margin:10px 0 30px;
   a{
     padding: 0 20px;
   }
