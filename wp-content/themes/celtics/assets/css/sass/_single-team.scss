@@ -89,23 +89,26 @@
     z-index: 1;
   }
   .player{
-    display: inline-block;
+    display: block;
     height: 550px;
+    float: left;
     position: relative;
-    -webkit-transition: all ease 500ms;
-    -webkit-transform: scale(1);
-    margin-right: -2px;
+    @include transition (all ease 500ms);
+    @include transform (scale(2) translateY(-137px));
+    &:nth-child(6) {
+      padding-left: 100px;
+    }
     img{
       position: absolute;
       bottom: 0;
     }
   }
   .scale1{
-    -webkit-transform: scale(1.5) translateY(-92px);
+    @include transform (scale(2.5) translateY(-165px));
     z-index: 2;
   }
   .scale2{
-    -webkit-transform: scale(2) translateY(-137px);
+   @include transform (scale(3.5) translateY(-196px));
     z-index: 3;
   }
 }
