@@ -113,7 +113,7 @@
 
 	$(window).load(function() {
 		$(window).resize();
-		scroll('#home-category .categories-news ul', '#home-category .see-more');
+		scroll('.posts-list ul', '.see-more');
 
 		
 	});

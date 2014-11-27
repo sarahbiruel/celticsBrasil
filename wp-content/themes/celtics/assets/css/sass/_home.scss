@@ -170,43 +170,6 @@
       right: 20px;
     }
   }
-  .categories-news{
-    margin-top: 20px;
-    ul{
-      margin-top: -10px;
-      overflow: hidden;
-    }
-    li{
-      border-top: 1px solid $border-default-color;
-      clear: both;
-      display: block;
-      height: 85px;
-      &:first-child{
-        margin-top: -1px;
-      }
-    }
-    .mini-thumb{
-      clear: both;
-      display: block;
-      float: left;
-      margin: 10px 15px 0 0;
-    }
-    h4{
-      position: relative;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      margin: 0;
-      a{
-        color: $secondary-color;
-        font:{ 
-          family: $text-font;
-          size: 14px;
-        }
-      }
-    }
-  }
 }
 #home-widget{
   margin-bottom: 65px;
