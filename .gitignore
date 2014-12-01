@@ -3,6 +3,7 @@ logs
 *.zip
 *.sql
 *.rar
+*.sql
 .htaccess
 .lock-wscript
 .ftppass

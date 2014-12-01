@@ -16,6 +16,6 @@ if (function_exists('add_image_size')) {
     add_image_size('featured', 1050, 450, true);
     add_image_size('news', 720, 309, true);
     add_image_size('thumb', 150, 64, true);
-    add_image_size('team', 470, 550, false);
+    add_image_size('team', 9999, 550, false);
     add_image_size('team-thumb', 35, 35, true);
 }

@@ -10037,25 +10037,43 @@ hr.line {
 }
 /* line 91, sass/_single-team.scss */
 #players .player {
-  display: inline-block;
+  display: block;
   height: 550px;
+  float: left;
   position: relative;
   -webkit-transition: all ease 500ms;
-  -webkit-transform: scale(1);
-  margin-right: -2px;
+  -o-transition: all ease 500ms;
+  transition: all ease 500ms;
+  -webkit-transform: scale(2) translateY(-137px);
+  -moz-transform: scale(2) translateY(-137px);
+  -ms-transform: scale(2) translateY(-137px);
+  -o-transform: scale(2) translateY(-137px);
+  transform: scale(2) translateY(-137px);
 }
 /* line 98, sass/_single-team.scss */
+#players .player:nth-child(6) {
+  padding-left: 100px;
+}
+/* line 101, sass/_single-team.scss */
 #players .player img {
   position: absolute;
   bottom: 0;
 }
-/* line 103, sass/_single-team.scss */
+/* line 106, sass/_single-team.scss */
 #players .scale1 {
-  -webkit-transform: scale(1.5) translateY(-92px);
+  -webkit-transform: scale(2.5) translateY(-165px);
+  -moz-transform: scale(2.5) translateY(-165px);
+  -ms-transform: scale(2.5) translateY(-165px);
+  -o-transform: scale(2.5) translateY(-165px);
+  transform: scale(2.5) translateY(-165px);
   z-index: 2;
 }
-/* line 107, sass/_single-team.scss */
+/* line 110, sass/_single-team.scss */
 #players .scale2 {
-  -webkit-transform: scale(2) translateY(-137px);
+  -webkit-transform: scale(3.5) translateY(-196px);
+  -moz-transform: scale(3.5) translateY(-196px);
+  -ms-transform: scale(3.5) translateY(-196px);
+  -o-transform: scale(3.5) translateY(-196px);
+  transform: scale(3.5) translateY(-196px);
   z-index: 3;
 }

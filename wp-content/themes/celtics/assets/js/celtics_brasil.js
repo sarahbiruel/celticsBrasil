@@ -1072,8 +1072,7 @@ if ($("#players").length)
 if ($('.players-carousel').length) {
 	$('.players-carousel').carouFredSel({
 		items : {
-			visible : 5,
-			min : 1
+			visible : 5
 		},
 		transition : true,
 		responsive : true,
