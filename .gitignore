@@ -1,6 +1,7 @@
 logs
 *.log
 *.zip
+*.sql
 *.rar
 *.sql
 .htaccess

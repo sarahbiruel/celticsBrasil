@@ -8,7 +8,7 @@
 }
 .single-title {
 
-  color: $secondary-color;
+  color: #0C6637;
   border-bottom: 1px solid $border-default-color;
   padding:20px 0;
   margin-top:0;
@@ -31,7 +31,7 @@
     }
   }
 }
-.block-time-comments {
+.block-date-comments {
 
   position: absolute;
   width:106px;
@@ -41,12 +41,12 @@
   margin-left: -35px;
   @include transform (translateX(-80%) translateY(-50%));
 
-  .time-comments {
+  .date-comments {
 
     width:auto;
     height: 116px;
     background-color: #0D6737;
-    padding: 15px;
+    padding: 15px 10px;
     text-align:center;
 
     span, p{
@@ -86,22 +86,62 @@
   margin: -20px 0 0 100px;
   position: relative;
   z-index: 1;
-  min-height: 1060px;
+  min-height: 1280px;
+  @include box-shadow(rgba(#000,0.5) 0px -15px 15px -20px);
+  &:before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:50px;
+    height: 90%;
+    @include box-shadow(rgba(#000,0.5) -15px 0px 15px -20px);
+  }
+  &:after {
+    content:"";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:50px;
+    height: 80%;
+    @include box-shadow(rgba(#000,0.5) 15px 0px 15px -20px);
+  }
+
+  table {
+    color: #000;
+    font-family: $text-font;
+  }
 }
-.single-post,.sidebar {
-  @include box-shadow(#999 0px 0px 10px);
-}
+
 .sidebar {
   background-color: #EEEEEE;
   left: -15px;
   padding:25px;
+  @include box-shadow(#000 -10px -5px 10px -5px);
+
+  .home-social {
+    margin-top:0;
+    padding: 20px 0px;
+  }
+
 }
-.author-thumb {
-  float: left;
+
+.picture-thumb {
+  img {
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:4px;
+    background-color: $light-color;
+  }
 }
+
+.author-head .picture-thumb {
+  float:left;
+  margin-right:10px;
+}
+
 .author-name {
   display: inline-block;
-  margin-left: 15px;
 }
 hr.line {
   border: {
@@ -130,5 +170,11 @@ hr.line {
   li:last-child {
     border: 0;
     @include box-shadow(none);
+  }
+}
+
+.social-icons {
+  span {
+    margin-right: 5px;
   }
 }

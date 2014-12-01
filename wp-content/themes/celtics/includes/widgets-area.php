@@ -13,6 +13,15 @@ function arphabet_widgets_init() {
         'before_title' => '<h2 class="title"><span>',
         'after_title' => '</span></h2>',
     ) );
+
+    register_sidebar( array(
+        'name' => 'Widget página de notícias',
+        'id' => 'single-widget',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',    
+        'before_title' => '<h2 class="single-title"><span>',
+        'after_title' => '</span></h2>',
+    ) );
     
     register_sidebar( array(
         'name' => 'Rodapé Widget - Primeira Área',
