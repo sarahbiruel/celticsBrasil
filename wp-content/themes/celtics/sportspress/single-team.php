@@ -43,10 +43,10 @@ get_header();
 					</div>
 					<nav class="featured-nav">
 						<li>
-							<a href="#" class="prev" style="display: block;"> <i class="icon sprite-featured-arrow-left"></i> </a>
+							<a href="#" class="prev"> <i class="icon sprite-featured-arrow-left"></i> </a>
 						</li>
 						<li>
-							<a href="#" class="next" style="display: block;"> <i class="icon sprite-featured-arrow-right"></i> </a>
+							<a href="#" class="next"> <i class="icon sprite-featured-arrow-right"></i> </a>
 						</li>
 					</nav>
 					<div class="sprite-feature-capition-shadow visible-md visible-lg"></div>
@@ -54,20 +54,20 @@ get_header();
 			</div>
             <div class="col-sm-12">
                 <div class="carousel-container">
-    			     <div class="players-carousel">
+                    <ul id="playersCarousel">
         				<?php
                         $args = array('post_type' => 'sp_player', 'posts_per_page' => -1);
                         $featured = new WP_Query($args);
                         $i = 1;
                         if ($featured -> have_posts()) :
-                            while ($featured -> have_posts()) : $featured -> the_post();                               
+                            while ($featured -> have_posts()) : $featured -> the_post();
                                 if(has_post_thumbnail()) {
                                     
                                    /* set class */
                                    if($i == 2 || $i == 4) 
                                        $class = 'scale1';
                                    else if ($i == 3 )
-                                       $class = 'scale2';
+                                       $class = 'scale2'; 
                                    else
                                        $class = '';
                                    
@@ -75,15 +75,17 @@ get_header();
                                    
                                     $term_list = wp_get_post_terms($post->ID, 'sp_position');
                                     $position = $term_list[0] -> slug;
-                        ?>
-                        <div class="player <?php echo $class; ?>" data-id="<?php echo the_ID(); ?>" data-position="<?php echo $position; ?>"><?php the_post_thumbnail('team', array('class' => 'img-responsive')); ?></div>
-                        <?php 
+                        
+                                    echo '<li class="player" data-id="' . get_the_ID() . '" data-position="' . $position . '">';
+                                    the_post_thumbnail();
+                                    echo '</li>';
+                        
                                 }
                                 $i++;
                             endwhile;
                         endif;
         				?>
-        			</div>
+        			</ul>
     			</div>
 			</div>
 		</div>

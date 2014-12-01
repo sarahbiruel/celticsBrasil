@@ -73,18 +73,3 @@ function wps_admin_bar() {
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
 
-/**
- * Replace default WordPress jQuery script with Google Library
- *
- * @since 0.1.0
- */
-function modify_jquery() {
-    if (!is_admin()) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', false, '1.11.1');
-        wp_enqueue_script('jquery');
-    }
-}
-add_action('init', 'modify_jquery');
-
-

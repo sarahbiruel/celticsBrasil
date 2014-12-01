@@ -48,13 +48,17 @@ get_header();
                             <div class="title">
                                 <?php the_title(); ?>
                             </div>
-                            <time datetime="<?php echo get_the_date(); echo ' ' . get_the_time(); ?>" class="date-time hidden-xs">
+                            <time datetime="<?php echo get_the_date();
+                                echo ' ' . get_the_time();
+ ?>" class="date-time hidden-xs">
                                 <span class="date"> <?php echo get_the_date('d-m-Y'); ?> </span>
                                 -
                                 <span class="time"> <?php echo get_the_time(); ?>h </span>
                             </time>
                         </div>
-                    <?php $i++; endwhile; ?>
+                    <?php $i++;
+                            endwhile;
+ ?>
                     </div>
                     <nav class="featured-nav">
                         <li><a href="#" class="prev"> <i class="icon sprite-featured-arrow-left"></i> </a></li>
@@ -68,9 +72,9 @@ get_header();
     </div>
     <section id="next-match">
     	<div class="match-container">    		
-            <?php    
-             if ( shortcode_exists( 'countdown' ) )
-                echo  do_shortcode('[countdown show_venue="1" show_league="0"]');
+            <?php
+            if (shortcode_exists('countdown'))
+                echo do_shortcode('[countdown show_venue="1" show_league="0"]');
             ?>    		
     	</div>
     </section>
@@ -79,16 +83,16 @@ get_header();
     		<div class="col-sm-3 col-sm-offset-9">
     			<section class="home-social text-center">
     				<ul class="row">
-    				    <?php    				    
-    				    if (!$data['twitter-page'] || !$data['facebook-page']){	            
-                            if(!$data['twitter-page'] && !$data['facebook-page']){
-    				            $offset = 'col-sm-offset-8';
-    				        }else{
-    				            $offset = 'col-sm-offset-4';
+    				    <?php
+                        if (!$data['twitter-page'] || !$data['facebook-page']) {
+                            if (!$data['twitter-page'] && !$data['facebook-page']) {
+                                $offset = 'col-sm-offset-8';
+                            } else {
+                                $offset = 'col-sm-offset-4';
                             }
                         }
                         ?>
-    					<li class="col-sm-4 <?php echo $offset;?>">
+    					<li class="col-sm-4 <?php echo $offset; ?>">
     						<a href="<?php bloginfo('rss_url'); ?>" target="_blank"> <i class="icon sprite-rss"></i> <span class="alias">ARTIGOS</span> <span class="number">1952</span> </a>
     					</li>
     					<?php if($data['twitter-page']){ ?>
@@ -135,16 +139,22 @@ get_header();
                                     $i = 1;
                                     foreach($categories as $category) {
     						    ?>
-    							<li class="<?php if ($i == 1) echo 'active'; ?>">
-    								<a href="#<?php echo $category->slug;?>" role="tab" data-toggle="tab"><?php echo $category->name; ?><i class="icon sprite-category-arraw"></i></a>
+    							<li class="<?php
+                                    if ($i == 1)
+                                        echo 'active';
+ ?>">
+    								<a href="#<?php echo $category -> slug; ?>" role="tab" data-toggle="tab"><?php echo $category -> name; ?><i class="icon sprite-category-arraw"></i></a>
     							</li>
-    							<?php $i++; } ?>
+    							<?php $i++;
+                                    }
+ ?>
     						</ul>
     					</div>
     					<div class="col-sm-7">
     						<div class="tab-content posts-list">
                                 <?php
-                                $args = array('child_of' => 138);
+                                $idObj = get_category_by_slug('colunas'); 
+                                $id = $idObj->term_id;
                                 $categories = get_categories( $args );
                                 $i = 0;
                                 foreach($categories as $category) {
@@ -155,7 +165,7 @@ get_header();
                                         'posts_per_page' => 10,
                                      );
                                 ?>
-                                    <div class="tab-pane fade <?php echo $i == 1 ? 'in active' : ''; ?>" id="<?php echo $category;?>">
+                                    <div class="tab-pane fade <?php echo $i == 1 ? 'in active' : ''; ?>" id="<?php echo $category; ?>">
                                         <ul>
                                         <?php
                                          query_posts($args);
@@ -164,17 +174,18 @@ get_header();
                                             <li>
                                                 <?php  if (has_post_thumbnail()){ ?>
                                                 <div class="mini-thumb">
-                                                    <a href="<?php the_permalink();?>"><?php the_post_thumbnail('thumb', array('class' => 'img-responsive')); ?></a>
+                                                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumb', array('class' => 'img-responsive')); ?></a>
                                                 </div>
                                                 <?php } ?>
-                                                <h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
+                                                <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                             </li>
                                             <?php endwhile; endif; ?>
                                         </ul>
                                     </div>
-                                <?php 
-                                    wp_reset_query(); 
-                                } ?>
+                                <?php
+                                        wp_reset_query();
+                                        }
+ ?>
     						</div>
                             <div class="see-more">
                                 <span class="before"></span><a href="#" class="gray-link">Clique e veja mais notícias<i class="icon sprite-see-more-gray"></i></a><span class="after"></span>

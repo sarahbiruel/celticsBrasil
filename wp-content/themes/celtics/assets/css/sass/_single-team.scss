@@ -83,32 +83,24 @@
       right: 55px;
     }
   }
-  .carousel-container{
+  .carousel-container {
     margin-top: -200px;
-    position: relative;
-    z-index: 1;
   }
-  .player{
-    display: block;
-    height: 550px;
-    float: left;
+  #playersCarousel{
     position: relative;
-    @include transition (all ease 500ms);
-    @include transform (scale(2) translateY(-137px));
-    &:nth-child(6) {
-      padding-left: 100px;
-    }
-    img{
+    li {      
+      list-style: none;
       position: absolute;
-      bottom: 0;
+      z-index: 1;
+      display: none;
+      bottom: 0 !important;
+      top: initial !important;
+      &:nth-child(3) {
+        pointer-events: none;
+      }
     }
-  }
-  .scale1{
-    @include transform (scale(2.5) translateY(-165px));
-    z-index: 2;
-  }
-  .scale2{
-   @include transform (scale(3.5) translateY(-196px));
-    z-index: 3;
+    span{
+      display: none !important;
+    }
   }
 }

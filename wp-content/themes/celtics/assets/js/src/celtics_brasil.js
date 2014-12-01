@@ -76,12 +76,15 @@
 	});
 
 	function scroll(obj, trigger) {
-		var height = $(obj).find('> *').first().height();
+		var height = 0;
+		$(obj).find('> *').each(function(){
+			height = $(this).height() > height ? $(this).height() : height;
+		});
 		var marginTop = height + 1;
 		var ulHeight = 0;
 		$(obj).each(function() {
 			var lenght = $(this).find('> *').length;
-			ulHeight = lenght >= 4 ? ulHeight = height * 4 : ulHeight = height * lenght;
+			ulHeight = lenght >= 4 ? height * 4 : height * lenght;
 			$(this).height(ulHeight);
 		});
 		$(trigger).click(function(e) {
