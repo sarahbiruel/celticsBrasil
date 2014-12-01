@@ -81,7 +81,7 @@
 		var ulHeight = 0;
 		$(obj).each(function() {
 			var lenght = $(this).find('> *').length;
-			ulHeight = lenght >= 4 ? ulHeight = height * 4 : ulHeight = height * lenght;
+			ulHeight = lenght >= 4 ? height * 4 : height * lenght;
 			$(this).height(ulHeight);
 		});
 		$(trigger).click(function(e) {

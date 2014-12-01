@@ -13,10 +13,12 @@ get_header();
     <div class="row">
 
         <div class="col-md-12">
-
+            <?php if(have_posts()) : 
+                        while(have_posts()) : the_post(); 
+            ?>
             <div id="single-thumbnail">
-               <img src="<?php echo get_template_directory_uri(); ?>/images/temp/single-thumbnail.jpg">
-            
+                <?php the_post_thumbnail('featured', array('class' => 'img-responsive')); ?>
+
                 <div class="featured-capition-list">
                     <div class="featured-capition">
                         <div class="title">
@@ -45,42 +47,35 @@ get_header();
 
             <!-- Artigo -->
             <div class="single-post">
-
+                
                 <!-- Data -->
-                <div class="block-time-comments">
-                    <div class="time-comments">
-                        <time datetime="2014-02-01 14:00">
-                            <p class="number">23</p>
-                            <p class="month">Dezembro</p>
-                            <span>2014</span>
-                        </time>
+                <div class="block-date-comments">
+                    <div class="date-comments">
+                        <div>
+                            <?php echo
+                                '<p class="number">' . get_the_date('d') . '</p>',
+                                '<p class="month">' . get_the_date('F') . '</p>',
+                                '<span>' . get_the_date('Y') . '</span>';
+                            ?>
+                        </div>
                     </div>
-                    <div class="time-comments light-green">
-                        <p class="number">54</p>
+                    <div class="date-comments light-green">
+                        <p class="number">154</p>
                         <span>comentários</span>
                     </div>
                 </div>
 
-                <h1 class="single-title"><span>Marcus Smart é ovacionado no Fenway Park </span></h1>
+                <h1 class="single-title"><span><?php the_title(); ?></span></h1>
 
                 <article>
-                    <p>Marcus Smart, escolhido pelo Boston Celtics com a sexta escolha no 2014 NBA Draft, passou apenas alguns dias de sua vida, até o presente momento, na cidade de Boston. Todavia, já conseguiu realizar um sonho de muitos dos cidadãos da capital do estado de Massachusetts: lançar uma bola no Fenway Park, centenário e famosíssimo estádio do Boston Red Sox.
-        Smart e o calouro do New England Patriots – Dominique Easley – realizaram o tradicional primeiro lançamento, pouco antes do começo da partida entre o Red Sox e o Houston Astros (que terminou com a vitória do Red Sox por 10×7).
-        </p>
-                    <p>Smart fez seu lançamento com certa desenvoltura e facilidade, mas ficou claro que sua maior qualidade está com a bola laranja do basquete.
-        “Eu costumava jogar baseball apenas por entretenimento”, disse Smart, enquanto era entrevistado no banco de reservas do Red Sox. ”Eu era fã do jogo de baseball quando criança, mas, obviamente, conforme você cresce, as coisas mudam. Eu ainda gosto de baseball e de assistir aos jogos, mas não sou mais o mesmo fanático de outrora”.</p>
-                    
-                    <p>Smart, nascido e criado em Dallas (Texas), não cresceu como um torcedor do Houston Astros (adversário da noite desse último Sábado), mas como um fã do Texas Rangers. Ele chegou a ir a diversos jogos do Rangers, ao longo da sua vida, mas fez questão de frisar que sua maior paixão sempre foi o basquete.
-O jogo desse Sábado marcou a primeira ida do novo camisa 36 do Celtics ao Fenway Park, mas o calouro já fez questão de divulgar que jamais esquecerá esse dia.</p>
-
-                    <p>”Essa foi minha primeira vez no Fenway Park, não há nada parecido. É simplesmente inacreditável o que estou vivendo”, disse Smart.
-O atleta, oriundo da Universidade de Oklahoma State, também fez questão de lembrar o que passou em sua cabeça, enquanto caminhava no túnel que dá acesso ao campo do estádio.</p>
-
-                    <p>”Eu estava caminhando e pensei: ‘nossa, que sensação incrível. É assim que eles se sentem ao entrar em campo? Que loucura!’ “.
-O outro fato inesquecível e louco do dia, para Marcus Smart? Conhecer David Ortiz.
-“David Ortiz dispensa apresentações, é um dos maiores nomes do baseball”, disse Smart. ”Ele simplesmente estava sentado próximo a mim, falando no telefone, e a sensação foi de ‘espera um pouco, aquele cara é Ortiz! Não pensei duas vezes e fui até ele, para tirar uma foto e eternizar esse momento’ “.</p>
+                    <?php the_content(); ?>
                 </article>
-
+                <?php 
+                    endwhile;
+                        endif;
+                ?>
+                <!-- Comments -->
+                <?php get_template_part( 'includes/single', 'comments' ); ?>
             </div>
         </div>
 
@@ -91,22 +86,23 @@ O outro fato inesquecível e louco do dia, para Marcus Smart? Conhecer David Ort
             <!-- Author -->
             <div class="author-single">
                 <div class="author-head">
-                    <div class="author-thumb">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/temp/author.jpg">
+                    <div class="picture-thumb">
+                        <?php echo get_avatar($post->post_author, 70 ); ?>
                     </div>
 
                     <div class="author-name">
-                        <h2 class="single-title"><span>Rômulo Portugal</span></h2>
+                        <h2 class="single-title"><span><?php the_author(); ?></span></h2>
                     </div>
                 </div>
 
                 <div class="author-resume">
-                    <p>Carioca, estudante de Direito, e fã de futebol, NBA e NFL. Acompanha o Celtics desde 2003. Seu fanatismo pelo maior campeão da NBA o fez torcer para os demais times de Boston. Tem Paul Pierce como primeiro e grande ídolo na NBA.
-</p>
+                    <p><?php the_author_meta('description'); ?></p> 
                 </div>
 
                 <div class="social-icons">
-                    <p>Facebook, Twitter, Instagram</p>
+                    <a href="#"><span class="icon sprite-facebook-gray"></span></a>
+                    <a href="#"><span class="icon sprite-twitter-gray"></span></a>
+                    <a href="#"><span class="icon sprite-instagram-gray"></span></a>
                 </div>
             </div>
 
@@ -115,31 +111,10 @@ O outro fato inesquecível e louco do dia, para Marcus Smart? Conhecer David Ort
             <!-- Recent Posts -->
 
             <div class="recent-posts">
-                <h2 class="single-title"><span>Últimas notícias</span></h2>
 
-                <div class="posts-list">
-                    <ul>
-                        <li>
-                            <div class="mini-thumb">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/temp/thumb-1.jpg" /></a>
-                            </div>
-                             <h4><a href="#">Evan Turner fecha contrato com o Celtics</a></h4>
-                        </li>    
-                        <li>
-                            <div class="mini-thumb">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/temp/thumb-2.jpg" /></a>
-                            </div>
-                             <h4><a href="#">Celtics vem oferecendo Bass a outras equipes</a></h4>
-                        </li>    
-                        <li>
-                            <div class="mini-thumb">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/temp/thumb-3.jpg" /></a>
-                            </div>
-                            <h4><a href="#">Marcus Smart é ovacionado no Fenway Park</a></h4>
-                        </li>
-                    </ul>
-                </div>
-            </div> 
+                <?php dynamic_sidebar('single-widget'); ?>
+
+            </div>
 
             <div class="see-more"><span class="before"></span><a href="#" class="gray-link">Clique e veja mais notícias<i class="icon sprite-see-more-gray"></i></a><span class="after"></span></div> <!-- carrega outras noticias -->
 
@@ -182,26 +157,26 @@ O outro fato inesquecível e louco do dia, para Marcus Smart? Conhecer David Ort
 
             <hr class="line">
 
-            <div class="feed-social-bar">
+            <div class="home-social text-center">
                 <ul class="row">
                     <li class="col-sm-4">
                         <a href="#">
                             <i class="icon sprite-rss"></i>
-                            <span class="alias">ARTIGOS</span>
+                            <div class="alias">ARTIGOS</div>
                             <span class="number">1952</span>
                         </a>
                     </li>
                     <li class="col-sm-4">
                         <a href="#">
                             <i class="icon sprite-twitter"></i>
-                            <span class="alias">SEGUIDORES</span>
+                            <div class="alias">SEGUIDORES</div>
                             <span class="number">2763</span>
                         </a>
                     </li>
                     <li class="col-sm-4">
                         <a href="#">
                             <i class="icon sprite-facebook"></i>
-                            <span class="alias">CURTIDAS</span>
+                            <div class="alias">CURTIDAS</div>
                             <span class="number">1963</span>
                         </a>
                     </li>

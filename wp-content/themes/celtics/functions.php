@@ -25,6 +25,7 @@ include_once 'includes/image-support.php';
 include_once 'includes/custom-posts.php';
 include_once 'includes/classes/metabox.class.php';
 include_once 'includes/widgets-area.php';
+include_once 'includes/widget-recent-posts.php';
 include_once 'includes/classes/shortcodes/countdown.php';
 include_once 'sportspress/functions.php';
 
