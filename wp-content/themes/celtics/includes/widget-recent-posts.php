@@ -38,25 +38,31 @@ class cb_recent_posts extends WP_Widget {
 			'posts_per_page' => $number
 			);
 
-		$posts = new WP_Query($posts_args);
+		$posts = new WP_Query($posts_args); ?>
+		
 
+        <div class="posts-list">
+            <ul>
+
+		<?php 
 		if ($posts -> have_posts()) : 
 			while($posts -> have_posts()) : $posts -> the_post(); ?>
-
-		<div class="posts-list">
-			<ul>
 				<li>
 					<div class="mini-thumb">
 						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumb', array('class' => 'img-responsive')); ?></a>
 					</div>
 					<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-				</li>    
-			</ul>
-		</div>
+				</li>
 
-
-	<?php endwhile;
+	   <?php 
+	   endwhile;
 	endif; 
+    ?>
+    
+        </ul>
+    </div>
+        
+    <?php
 
 
 	echo $args['after_widget'];

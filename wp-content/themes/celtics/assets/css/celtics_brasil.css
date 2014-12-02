@@ -8171,16 +8171,9 @@ div.wpcf7-response-output {
   margin: 0;
 }
 
-<<<<<<< HEAD
-/* line 218, sprite/*.png */
-.sprite-sprite, .sprite-category-arraw, .sprite-celtics-brasil-logo-shadow, .sprite-creative, .sprite-developed-by, .sprite-facebook-white, .sprite-facebook, .sprite-feature-capition-shadow, .sprite-featured-arrow-left, .sprite-featured-arrow-right, .sprite-footer-logo, .sprite-gplus-white, .sprite-instagram-white, .sprite-match-timer-shadow, .sprite-menu-arraw-left, .header-menu .dl-back > a:after, .sprite-menu-arraw, .header-menu .menu-item-has-children > a:after, .sprite-menu, .sprite-rss, .sprite-search, .sprite-see-more-gray, .sprite-single-categories-arrow, .sprite-twitter-white, .sprite-twitter, .sprite-youtube-white, .header-logo:before {
-  background: url('../../images/sprite-s6df6670d4d.png') no-repeat;
-=======
-/* line 272, sprite/*.png */
+/* line 266, sprite/*.png */
 .sprite-sprite, .sprite-category-arraw, .sprite-celtics-brasil-logo-shadow, .sprite-comment-balloon, .sprite-comment-dislike, .sprite-comment-like, .sprite-creative, .sprite-developed-by, .sprite-facebook-gray, .sprite-facebook-white, .sprite-facebook, .sprite-feature-capition-shadow, .sprite-featured-arrow-left, .sprite-featured-arrow-right, .sprite-footer-logo, .sprite-gplus-white, .sprite-instagram-gray, .sprite-instagram-white, .sprite-match-timer-shadow, .sprite-menu-arraw-left, .header-menu .dl-back > a:after, .sprite-menu-arraw, .header-menu .menu-item-has-children > a:after, .sprite-menu, .sprite-rss, .sprite-search, .sprite-see-more-gray, .sprite-single-categories-arrow, .sprite-twitter-gray, .sprite-twitter-white, .sprite-twitter, .sprite-youtube-white, .header-logo:before {
-  background-image: url('../../images/sprite-s41d5408db2.png');
-  background-repeat: no-repeat;
->>>>>>> 0db225489761fb63f366fa027b3f9e03910be90a
+  background: url('../../images/sprite-s41d5408db2.png') no-repeat;
 }
 
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
@@ -8197,32 +8190,28 @@ div.wpcf7-response-output {
   width: 549px;
 }
 
-<<<<<<< HEAD
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-=======
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-comment-balloon {
   background-position: -290px -110px;
   height: 18px;
   width: 20px;
 }
 
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-comment-dislike {
   background-position: -277px -110px;
   height: 13px;
   width: 13px;
 }
 
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-comment-like {
   background-position: -264px -110px;
   height: 13px;
   width: 13px;
 }
 
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
->>>>>>> 0db225489761fb63f366fa027b3f9e03910be90a
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-creative {
   background-position: -433px 0;
   height: 21px;
@@ -8236,18 +8225,14 @@ div.wpcf7-response-output {
   width: 101px;
 }
 
-<<<<<<< HEAD
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-=======
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-facebook-gray {
   background-position: -128px -110px;
   height: 32px;
   width: 32px;
 }
 
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
->>>>>>> 0db225489761fb63f366fa027b3f9e03910be90a
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-facebook-white {
   background-position: -192px -110px;
   height: 32px;
@@ -8296,7 +8281,7 @@ div.wpcf7-response-output {
   width: 32px;
 }
 
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-instagram-gray {
   background-position: -401px 0;
   height: 32px;
@@ -8366,18 +8351,14 @@ div.wpcf7-response-output {
   width: 6px;
 }
 
-<<<<<<< HEAD
 /* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
-=======
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-twitter-gray {
   background-position: -96px -110px;
   height: 32px;
   width: 32px;
 }
 
-/* line 84, ../../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
->>>>>>> 0db225489761fb63f366fa027b3f9e03910be90a
+/* line 60, c:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .sprite-twitter-white {
   background-position: -160px -110px;
   height: 32px;

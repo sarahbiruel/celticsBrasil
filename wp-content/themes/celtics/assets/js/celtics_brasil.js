@@ -1086,12 +1086,13 @@ $(document).ready(function() {
 		});
 		
 		var imgWidth = $('.container').width() * 0.63;
-		console.log(imgWidth);
+		var imgHeight = imgWidth * 0.81;
+		console.log(imgHeight);
 		
 		$('#playersCarousel').boutique({
 			starter : 1,
 			speed : 800,
-			container_width : '100%',
+			container_width : $('.container').width(),
 			front_img_width : imgWidth,
 			front_img_height : '100%',
 			hoverspeed : 0,
@@ -1190,11 +1191,9 @@ $(document).ready(function() {
 		});
 		var marginTop = height + 1;
 		var ulHeight = 0;
-		$(obj).each(function() {
-			var lenght = $(this).find('> *').length;
-			ulHeight = lenght >= 4 ? height * 4 : height * lenght;
-			$(this).height(ulHeight);
-		});
+		var lenght = $(obj).find('> *').length;
+		ulHeight = lenght >= 4 ? height * 4 : height * lenght;
+		$(obj).height(ulHeight);
 		$(trigger).click(function(e) {
 			e.preventDefault();
 			$(obj + ':visible').find('> *:first-child').animate({

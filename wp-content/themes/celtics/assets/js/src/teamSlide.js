@@ -73,12 +73,13 @@ $(document).ready(function() {
 		});
 		
 		var imgWidth = $('.container').width() * 0.63;
-		console.log(imgWidth);
+		var imgHeight = imgWidth * 0.81;
+		console.log(imgHeight);
 		
 		$('#playersCarousel').boutique({
 			starter : 1,
 			speed : 800,
-			container_width : '100%',
+			container_width : $('.container').width(),
 			front_img_width : imgWidth,
 			front_img_height : '100%',
 			hoverspeed : 0,

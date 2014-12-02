@@ -82,11 +82,9 @@
 		});
 		var marginTop = height + 1;
 		var ulHeight = 0;
-		$(obj).each(function() {
-			var lenght = $(this).find('> *').length;
-			ulHeight = lenght >= 4 ? height * 4 : height * lenght;
-			$(this).height(ulHeight);
-		});
+		var lenght = $(obj).find('> *').length;
+		ulHeight = lenght >= 4 ? height * 4 : height * lenght;
+		$(obj).height(ulHeight);
 		$(trigger).click(function(e) {
 			e.preventDefault();
 			$(obj + ':visible').find('> *:first-child').animate({
