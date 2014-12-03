@@ -1,9 +1,15 @@
 #players{
-  margin-top: 80px;
+  @media (min-width: $screen-sm-min){
+    margin-top: 30px;
+  }
+  @media (min-width: $screen-sm-min){
+    margin-top: 80px;
+  }
   .category{
     position: relative;
     z-index: 2;
     p {
+      color: $light-color;
       margin: 0;
     }
     > p {
@@ -42,7 +48,6 @@
   .player-description{
     background: $primary-color;
     display: inline-block;
-    float: right;
     padding: 20px;
     position: relative;
     width: 100%;
@@ -57,7 +62,7 @@
     }
     .number{
       float: left;
-      font-size: 80px;
+      font-size: 65px;
       line-height: 0.8em;
       margin-right: 20px;
     }
@@ -66,7 +71,7 @@
       line-height: 2em;
     }
     .name{
-      font-size: 30px;
+      font-size: 25px;
     }
     .position {
       font-size: 18px;
@@ -74,33 +79,101 @@
     .see-statistics {
       font-weight: 400;
     }
-    .featured-nav{      
-      bottom: -60px;
+    .featured-nav{
+      //bottom: -60px;
+      position: absolute;
       right: 0;
+      top: 100%;
     }
     .sprite-feature-capition-shadow{
       bottom: -14px;
       right: 55px;
     }
   }
-  .carousel-container {
-    margin-top: -200px;
+}
+
+#playersContent{
+  display:none;
+}
+  
+.carousel-container {
+  margin-top: 50px;
+  @media (min-width: $screen-sm-min){
+    margin-top: -70px;
   }
-  #playersCarousel{
-    position: relative;
-    li {      
-      list-style: none;
+  @media (min-width: $screen-md-min){
+    margin-top: -150px;
+  }
+}
+
+#playersCarousel{
+  position: relative;
+  li {
+    bottom: 0 !important;
+    cursor: pointer;
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: initial !important;
+    z-index: 1;
+    &.frame3 {
+      pointer-events: none;
+    }
+  }
+  span{
+    display: none !important;
+  }
+}
+
+#statistics {
+  background: $primary-color;
+  position: relative;
+  z-index: 3;
+  &:before {
+    @include box-shadow(0 -10px 20px -10px black);
+    content: '';
+    height: 30px;
+    position: absolute;
+    width: 100%;
+  }
+  .see-statistics {
+    border: 0;
+    display: inline;
+    left: 50%;
+    margin: -32px 0 0 -98px;
+    position: absolute;
+    top: 0;
+    &:before, &:after{
+      display: block;
+      content: '';
+      height: 70%;
       position: absolute;
-      z-index: 1;
-      display: none;
-      bottom: 0 !important;
-      top: initial !important;
-      &:nth-child(3) {
-        pointer-events: none;
+      width: 96%;
+      z-index: -1;
+      left: 2%;
+      top: 19%;
+      @include box-shadow (0 0px 20px 0px rgba(0,0,0,0.4));
+      @include rotate(-5deg);
+    }
+    &:after{
+      @include rotate(5deg);
+    }
+    a{
+      background-color: $primary-color;
+      color: $light-color;
+      display: block;
+      font : {
+        size: 22px;
+        weight: $font-bold;
+      }
+      padding: 20px;
+      &:hover, &:focus {
+        text-decoration: none;
       }
     }
-    span{
-      display: none !important;
-    }
+  }
+  .content {
+    display: none;
+    padding: 50px 0 25px;
   }
 }

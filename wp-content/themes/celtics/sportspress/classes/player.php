@@ -1,6 +1,4 @@
 <?php
-include_once("../../../../wp-load.php");
-
 /**
  *
  */
@@ -12,12 +10,13 @@ class Player {
     private $position;
 
     function __construct($id) {
-        $this -> id = $id;
+        $this -> setId($id);
+        $this -> setData();
+    }
 
-        $this -> setNumber();
-        $this -> setName();
-        $this -> setPosition();
-
+    public function setId($newId) {
+        $this -> id = $newId;
+        $this -> setData();
     }
 
     private function setNumber() {
@@ -34,6 +33,12 @@ class Player {
         $this -> position = array('slug' => $term_list[0] -> slug, 'name' => $term_list[0] -> name, 'description' => $term_list[0] -> description);
     }
 
+    private function setData() {
+        $this -> setNumber();
+        $this -> setName();
+        $this -> setPosition();
+    }
+
     public function getNumber() {
         return $this -> number;
     }
@@ -44,19 +49,6 @@ class Player {
 
     public function getPosition() {
         return $this -> position;
-    }
-    
-    public function getJson() {
-        $json = json_encode(
-            array(
-                "id" => $this -> id, 
-                "number" => $this -> number,
-                "name" => $this -> name,
-                "position" => $this -> position
-            )
-        );
-        
-        return $json;
     }
 
 }

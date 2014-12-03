@@ -9948,29 +9948,38 @@ hr.line {
   /*@include box-shadow(#fff 0px 0px 0px 1px);*/
 }
 
-/* line 1, sass/_single-team.scss */
-#players {
-  margin-top: 80px;
+@media (min-width: 768px) {
+  /* line 1, sass/_single-team.scss */
+  #players {
+    margin-top: 30px;
+  }
 }
-/* line 3, sass/_single-team.scss */
+@media (min-width: 768px) {
+  /* line 1, sass/_single-team.scss */
+  #players {
+    margin-top: 80px;
+  }
+}
+/* line 8, sass/_single-team.scss */
 #players .category {
   position: relative;
   z-index: 2;
 }
-/* line 6, sass/_single-team.scss */
+/* line 11, sass/_single-team.scss */
 #players .category p {
+  color: white;
   margin: 0;
 }
-/* line 9, sass/_single-team.scss */
+/* line 15, sass/_single-team.scss */
 #players .category > p {
   margin: 20px 0 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
-/* line 13, sass/_single-team.scss */
+/* line 19, sass/_single-team.scss */
 #players .category li {
   display: inline-block;
 }
-/* line 15, sass/_single-team.scss */
+/* line 21, sass/_single-team.scss */
 #players .category li a {
   background: #59a618;
   color: #fff;
@@ -9981,102 +9990,189 @@ hr.line {
   text-decoration: none;
   text-transform: uppercase;
 }
-/* line 24, sass/_single-team.scss */
+/* line 30, sass/_single-team.scss */
 #players .category li a:hover {
   background: #5eaf19;
 }
-/* line 28, sass/_single-team.scss */
+/* line 34, sass/_single-team.scss */
 #players .category li:nth-child(odd) a {
   background: #4b8b14;
 }
-/* line 30, sass/_single-team.scss */
+/* line 36, sass/_single-team.scss */
 #players .category li:nth-child(odd) a:hover {
   background: #468213;
 }
-/* line 34, sass/_single-team.scss */
+/* line 40, sass/_single-team.scss */
 #players .category li:first-child a {
   background: #003521;
 }
-/* line 36, sass/_single-team.scss */
+/* line 42, sass/_single-team.scss */
 #players .category li:first-child a:hover {
   background: #002b1b;
 }
-/* line 42, sass/_single-team.scss */
+/* line 48, sass/_single-team.scss */
 #players .player-description {
   background: #59a618;
   display: inline-block;
-  float: right;
   padding: 20px;
   position: relative;
   width: 100%;
   z-index: 2;
 }
-/* line 50, sass/_single-team.scss */
+/* line 55, sass/_single-team.scss */
 #players .player-description > div {
   color: #fff;
   font-weight: 600;
   margin: 0;
 }
-/* line 55, sass/_single-team.scss */
+/* line 60, sass/_single-team.scss */
 #players .player-description a {
   color: white;
 }
-/* line 58, sass/_single-team.scss */
+/* line 63, sass/_single-team.scss */
 #players .player-description .number {
   float: left;
-  font-size: 80px;
+  font-size: 65px;
   line-height: 0.8em;
   margin-right: 20px;
 }
-/* line 64, sass/_single-team.scss */
+/* line 69, sass/_single-team.scss */
 #players .player-description .info {
   float: left;
   line-height: 2em;
 }
-/* line 68, sass/_single-team.scss */
+/* line 73, sass/_single-team.scss */
 #players .player-description .name {
-  font-size: 30px;
+  font-size: 25px;
 }
-/* line 71, sass/_single-team.scss */
+/* line 76, sass/_single-team.scss */
 #players .player-description .position {
   font-size: 18px;
 }
-/* line 74, sass/_single-team.scss */
+/* line 79, sass/_single-team.scss */
 #players .player-description .see-statistics {
   font-weight: 400;
 }
-/* line 77, sass/_single-team.scss */
+/* line 82, sass/_single-team.scss */
 #players .player-description .featured-nav {
-  bottom: -60px;
+  position: absolute;
   right: 0;
+  top: 100%;
 }
-/* line 81, sass/_single-team.scss */
+/* line 88, sass/_single-team.scss */
 #players .player-description .sprite-feature-capition-shadow {
   bottom: -14px;
   right: 55px;
 }
-/* line 86, sass/_single-team.scss */
-#players .carousel-container {
-  margin-top: -200px;
+
+/* line 95, sass/_single-team.scss */
+#playersContent {
+  display: none;
 }
-/* line 89, sass/_single-team.scss */
-#players #playersCarousel {
+
+/* line 99, sass/_single-team.scss */
+.carousel-container {
+  margin-top: 50px;
+}
+@media (min-width: 768px) {
+  /* line 99, sass/_single-team.scss */
+  .carousel-container {
+    margin-top: -70px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 99, sass/_single-team.scss */
+  .carousel-container {
+    margin-top: -150px;
+  }
+}
+
+/* line 109, sass/_single-team.scss */
+#playersCarousel {
   position: relative;
 }
-/* line 91, sass/_single-team.scss */
-#players #playersCarousel li {
+/* line 111, sass/_single-team.scss */
+#playersCarousel li {
+  bottom: 0 !important;
+  cursor: pointer;
+  display: none;
   list-style: none;
   position: absolute;
-  z-index: 1;
-  display: none;
-  bottom: 0 !important;
   top: initial !important;
+  z-index: 1;
 }
-/* line 98, sass/_single-team.scss */
-#players #playersCarousel li:nth-child(3) {
+/* line 119, sass/_single-team.scss */
+#playersCarousel li.frame3 {
   pointer-events: none;
 }
-/* line 102, sass/_single-team.scss */
-#players #playersCarousel span {
+/* line 123, sass/_single-team.scss */
+#playersCarousel span {
   display: none !important;
+}
+
+/* line 128, sass/_single-team.scss */
+#statistics {
+  background: #59a618;
+  position: relative;
+  z-index: 3;
+}
+/* line 132, sass/_single-team.scss */
+#statistics:before {
+  -webkit-box-shadow: 0 -10px 20px -10px black;
+  box-shadow: 0 -10px 20px -10px black;
+  content: '';
+  height: 30px;
+  position: absolute;
+  width: 100%;
+}
+/* line 139, sass/_single-team.scss */
+#statistics .see-statistics {
+  border: 0;
+  display: inline;
+  left: 50%;
+  margin: -32px 0 0 -98px;
+  position: absolute;
+  top: 0;
+}
+/* line 146, sass/_single-team.scss */
+#statistics .see-statistics:before, #statistics .see-statistics:after {
+  display: block;
+  content: '';
+  height: 70%;
+  position: absolute;
+  width: 96%;
+  z-index: -1;
+  left: 2%;
+  top: 19%;
+  -webkit-box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.4);
+  -webkit-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+/* line 158, sass/_single-team.scss */
+#statistics .see-statistics:after {
+  -webkit-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+/* line 161, sass/_single-team.scss */
+#statistics .see-statistics a {
+  background-color: #59a618;
+  color: white;
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 20px;
+}
+/* line 170, sass/_single-team.scss */
+#statistics .see-statistics a:hover, #statistics .see-statistics a:focus {
+  text-decoration: none;
+}
+/* line 175, sass/_single-team.scss */
+#statistics .content {
+  display: none;
+  padding: 50px 0 25px;
 }

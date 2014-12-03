@@ -1011,98 +1011,117 @@ var MatchTimer = function(obj) {
 	};
 })(jQuery);
 
-var Team = function(elementDescriptionObj) {
-	this.descriptionObj = elementDescriptionObj;
-	this.carouselObj = '';
-	var ajaxUrl = '';
-	var playerId = '';
-
-	this.setUrl = function(newUrl) {
-		ajaxUrl = newUrl;
-	};
-
-	this.setId = function(newid) {
-		playerId = newid;
-	};
-
-	this.setCarousel = function(newCarouselObj) {
-		this.carouselObj = newCarouselObj;
-	};
-
-	this.getDescription = function() {
-		var descriptionObj = this.descriptionObj;
-		descriptionObj.fadeTo('slow', 0.75).addClass('no-click');
-		$.ajax({
-			type : 'POST',
-			url : ajaxUrl,
-			dataType : 'json',
-			data : {
-				id : playerId
-			},
-			cache : false,
-			success : function(data) {
-				data.id = data.id ? data.id : '';
-				data.number = data.number ? data.number : '';
-				data.name = data.name ? data.name : '';
-				data.position = data.position['name'] && data.position['description'] ? data.position['name'] + ' (' + data.position['description'] + ')' : '';
-				descriptionObj.find('.number').html(data.number);
-				descriptionObj.find('.name').html(data.name);
-				descriptionObj.find('.position').html(data.position);
-				descriptionObj.find('.see-statistics a').attr('href', '#' + data.id).end().fadeTo("slow", 1).removeClass('no-click');
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-				console.log(textStatus, errorThrown);
-			}
-		});
-	};
-};
-
 /*
  * Single Team slider
  */
-var teamSlider = new Team($("#players .player-description"));
 $(document).ready(function() {
-	if ($("#players").length) {
-		teamSlider.setUrl(playersUrl);
 
-		$('.prev').click(function(e) {
-			e.preventDefault();
-			var playerId = $('#players .frame2').attr('data-id');
-			teamSlider.setId(playerId);
-			teamSlider.getDescription();
-			playersCarousel_ext_prev();
-		});
+	var setPlayerDescription = function() {
+		if (!$('.frame3').hasClass('old')) {
+			$('.player-description').stop(true).fadeTo("slow", 0.7, function() {
+				$('.player').removeClass('old');
+				$('.frame3').addClass('old');
+				var number = $('.frame3').attr('data-number');
+				var name = $('.frame3').attr('data-name');
+				var positionAbbr = $('.frame3').attr('data-position-abbr') ? ' (' + $('.frame3').attr('data-position-abbr') + ')' : '';
+				var position = $('.frame3').attr('data-position') + positionAbbr;
+				$('.player-description').find('.number').html(number);
+				$('.player-description').find('.name').html(name);
+				$('.player-description').find('.position').html(position);
+				$('.see-statistics a').attr("href", "#" + number);
+			}).fadeTo("slow", 1);
+		}
+	};
 
-		$('.next').click(function(e) {
-			e.preventDefault();
-			var playerId = $('#players .frame4').attr('data-id');
-			teamSlider.setId(playerId);
-			teamSlider.getDescription();
-			playersCarousel_ext_next();
-		});
-		
-		$('#playersCarousel').change(function(){
-			console.log('ok');
-		});
-		
+	var PlayersSlideInit = function(objId) {
+
 		var imgWidth = $('.container').width() * 0.63;
-		var imgHeight = imgWidth * 0.81;
-		console.log(imgHeight);
-		
-		$('#playersCarousel').boutique({
-			starter : 1,
+
+		$(objId).boutique({
 			speed : 800,
-			container_width : $('.container').width(),
 			front_img_width : imgWidth,
-			front_img_height : '100%',
+			front_topmargin : 0,
 			hoverspeed : 0,
 			hovergrowth : 0,
-			behind_opac : 0.9,
+			behind_opac : 1,
 			back_opac : 0.9,
 			behind_size : 0.6,
 			back_size : 0.3,
 			autoplay : false,
 			autointerval : 4000
+		});
+
+		var carouselHeight = $(objId).height();
+		$('.carousel-container').height(carouselHeight);
+		setPlayerDescription();
+
+		$(objId).click(function() {
+			setPlayerDescription();
+		});
+	};
+
+	var PlayerSlideReflash = function(slideId, cloneObj) {
+		var newSlide = $(cloneObj).clone().attr('id', slideId);
+		$('#' + slideId).remove();
+		newSlide.appendTo('.carousel-container');
+	};
+
+	var PlayerSlideContent = function(slideId, abbr) {
+		abbr = abbr ? abbr : '';
+
+		if (abbr) {
+			$(slideId).find('li').each(function() {
+				var positionAbbr = $(this).attr('data-position-abbr');
+				if (positionAbbr != abbr) {
+					$(this).remove();
+				}
+			});
+		}
+	};
+
+	if ($("#players").length) {
+
+		PlayerSlideReflash('playersCarousel', '#playersContent');
+		PlayerSlideContent('#playersCarousel');
+		PlayersSlideInit('#playersCarousel');
+
+		$('.prev').click(function(e) {
+			e.preventDefault();
+			playersCarousel_ext_prev();
+			setPlayerDescription();
+		});
+
+		$('.next').click(function(e) {
+			e.preventDefault();
+			playersCarousel_ext_next();
+			setPlayerDescription();
+		});
+
+		$('#players .category a').click(function(e) {
+			e.preventDefault();
+			var abbr = $(this).attr('href');
+
+			PlayerSlideReflash('playersCarousel', '#playersContent');
+			PlayerSlideContent('#playersCarousel', abbr);
+			PlayersSlideInit('#playersCarousel');
+		});
+
+		$(window).resize(function() {
+			PlayerSlideReflash('playersCarousel', '#playersContent');
+			PlayerSlideContent('#playersCarousel');
+			PlayersSlideInit('#playersCarousel');
+		});
+
+		$('.see-statistics').click(function() {
+			if ($('#statistics .content').is(':visible')) {
+				$('#statistics .content').slideUp('slow');
+			} else {
+				$('#statistics .content').slideDown('slow');
+				var scroll = $('#statistics .content').offset().top - 50;
+				$('html, body').animate({
+					scrollTop : scroll
+				}, 500);
+			}
 		});
 	}
 });

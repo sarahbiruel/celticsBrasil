@@ -7,11 +7,12 @@
  */
 
 get_header();
+include_once (TEMPLATEPATH . '/sportspress/classes/player.php');
 ?>
 <section id="players">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8">
+			<div class="col-md-8">
 				<h2 class="title"><span>Elenco</span></h2>
 				<div class="row">
 					<div class="category col-sm-6">
@@ -23,16 +24,10 @@ get_header();
                         listPositionsDescription($sp_position, 'todas');
 						?>
 					</div>
-					<div class="category col-sm-6"></div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<div class="player-description">
-                <?php
-                    echo '<script>';
-                    echo 'var playersUrl = "' . get_stylesheet_directory_uri() . '/sportspress/player-description.php"';
-                    echo '</script>';
-                ?>
 					<div class="number"></div>
 					<div class="info">
 						<div class="name"></div>
@@ -52,52 +47,58 @@ get_header();
 					<div class="sprite-feature-capition-shadow visible-md visible-lg"></div>
 				</div>
 			</div>
-            <div class="col-sm-12">
-                <div class="carousel-container">
-                    <ul id="playersCarousel">
-        				<?php
-                        $args = array('post_type' => 'sp_player', 'posts_per_page' => -1);
-                        $featured = new WP_Query($args);
-                        $i = 1;
-                        if ($featured -> have_posts()) :
-                            while ($featured -> have_posts()) : $featured -> the_post();
-                                if(has_post_thumbnail()) {
-                                    
-                                   /* set class */
-                                   if($i == 2 || $i == 4) 
-                                       $class = 'scale1';
-                                   else if ($i == 3 )
-                                       $class = 'scale2'; 
-                                   else
-                                       $class = '';
-                                   
-                                   /* get position */
-                                   
-                                    $term_list = wp_get_post_terms($post->ID, 'sp_position');
-                                    $position = $term_list[0] -> slug;
-                        
-                                    echo '<li class="player" data-id="' . get_the_ID() . '" data-position="' . $position . '">';
-                                    the_post_thumbnail();
-                                    echo '</li>';
-                        
-                                }
-                                $i++;
-                            endwhile;
-                        endif;
-        				?>
-        			</ul>
-    			</div>
+			<div class="col-md-12">
+				<ul id="playersContent">
+					<?php
+                    $player = new Player(1);
+                    $args = array('post_type' => 'sp_player', 'posts_per_page' => -1);
+                    $featured = new WP_Query($args);
+                    $i = 1;
+                    if ($featured -> have_posts()) :
+                        while ($featured -> have_posts()) : $featured -> the_post();
+                            if (has_post_thumbnail()) {
+
+                                $player -> setId($post -> ID);
+                                $position = $player -> getPosition();
+
+                                $dataNumber = $player -> getNumber() ? ' data-number="' . $player -> getNumber() . '"' : 'data-number=""';
+                                $dataName = $player -> getName() ? ' data-name="' . $player -> getName() . '"' : 'data-name=""';
+                                $dataPositionName = $position['name'] ? ' data-position="' . $position['name'] . '"' : ' data-position=""';
+                                $dataPositionAbbr = $position['description'] ? ' data-position-abbr="' . $position['description'] . '"' : ' data-position-abbr=""';
+
+                                echo '<li class="player"', $dataNumber, $dataName, $dataPositionName, $dataPositionAbbr, '>';
+                                the_post_thumbnail();
+                                echo '</li>';
+
+                            }
+                            $i++;
+                        endwhile;
+                    endif;
+					?>
+				</ul>
+				<div class="carousel-container">
+					<ul id="playersCarousel"></ul>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="clearfix"></div>
-	<div id="statistics" class="container">
-		<div class="row">
-			<div class="news">
-				<div class="col-sm-12">
-					<h2 class="title"><span>Ver estatísticas</span></h2>
+	<div id="statistics">
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<?php 						
+						echo do_shortcode( '[player_details 16712]' );
+						echo do_shortcode( '[player_statistics 16712]' );
+						
+						?>
+					</div>
 				</div>
 			</div>
+		</div>
+		<div class="see-statistics">
+			<a href="#">Ver estastísticas</a>
 		</div>
 	</div>
 </section>
