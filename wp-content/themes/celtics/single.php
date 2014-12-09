@@ -20,17 +20,19 @@ get_header();
             <div id="single-thumbnail">
                 <?php the_post_thumbnail('featured', array('class' => 'img-responsive')); ?>
 
+
                 <div class="featured-capition-list">
                     <div class="featured-capition">
-
                         <div class="title">
-                            <?php next_post('%', '', 'yes'); ?>
+                            <?php previous_post('%', '', 'yes'); ?>
                         </div>
                     </div>
                 </div>
                 <nav class="featured-nav"> 
-                    <li class="prev"><?php previous_post('%', '<i class="icon sprite-featured-arrow-left"></i>', ''); ?></li>
-                    <li class="next"><?php next_post('%', '<i class="icon sprite-featured-arrow-right"></i>', ''); ?></li>
+                    <ul>
+                        <li class="next"><?php next_post('%', '<i class="icon sprite-featured-arrow-left"></i>', ''); ?></li>
+                        <li class="prev"><?php previous_post('%', '<i class="icon sprite-featured-arrow-right"></i>', ''); ?></li>
+                    </ul>
                 </nav>
                 <div class="sprite-feature-capition-shadow visible-md visible-lg"></div>
             </div>
@@ -69,7 +71,7 @@ get_header();
                 endif;
                 ?>
                 <!-- Comments -->
-                <?php get_template_part( 'includes/single', 'comments' ); ?>
+                <?php comments_template('/includes/templates/alternative-comments.php'); ?> 
             </div>
         </div>
         <!-- Sidebar -->

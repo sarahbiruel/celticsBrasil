@@ -9833,21 +9833,21 @@ hr.line {
 
 /* line 9, sass/_single-comments.scss */
 .comment {
-  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
   padding: 25px 0 40px;
 }
 /* line 13, sass/_single-comments.scss */
-.comment:last-child {
-  border: none;
+.comment:first-child {
+  border-top: none;
 }
 
-/* line 18, sass/_single-comments.scss */
+/* line 19, sass/_single-comments.scss */
 .comment-sub {
   margin-left: 10px;
   padding: 40px 0 0;
 }
 
-/* line 23, sass/_single-comments.scss */
+/* line 24, sass/_single-comments.scss */
 .comment-text {
   color: #000;
   background-color: #eee;
@@ -9855,68 +9855,68 @@ hr.line {
   position: relative;
 }
 
-/* line 32, sass/_single-comments.scss */
+/* line 33, sass/_single-comments.scss */
 .comment-head time, .comment-head span {
   color: #0C6637;
 }
-/* line 36, sass/_single-comments.scss */
+/* line 37, sass/_single-comments.scss */
 .comment-head time {
   font-size: 12px;
 }
-/* line 40, sass/_single-comments.scss */
+/* line 41, sass/_single-comments.scss */
 .comment-head span {
   font-weight: 600;
 }
 
-/* line 45, sass/_single-comments.scss */
+/* line 46, sass/_single-comments.scss */
 .comment-bar {
   position: absolute;
 }
-/* line 48, sass/_single-comments.scss */
+/* line 49, sass/_single-comments.scss */
 .comment-bar i {
   vertical-align: middle;
 }
-/* line 52, sass/_single-comments.scss */
+/* line 53, sass/_single-comments.scss */
 .comment-bar a {
   cursor: pointer;
   color: white;
   text-decoration: none;
 }
 
-/* line 60, sass/_single-comments.scss */
+/* line 61, sass/_single-comments.scss */
 .respond {
   background-color: #A2A2A2;
   padding: 8px 12px;
   width: auto;
 }
-/* line 65, sass/_single-comments.scss */
+/* line 66, sass/_single-comments.scss */
 .respond span {
   font-size: 11px;
   font-weight: 600;
   color: white;
 }
-/* line 73, sass/_single-comments.scss */
+/* line 74, sass/_single-comments.scss */
 .respond:hover {
   background-color: #59a618;
 }
 
-/* line 78, sass/_single-comments.scss */
+/* line 79, sass/_single-comments.scss */
 .like, .dislike {
   background-color: #888888;
 }
-/* line 80, sass/_single-comments.scss */
+/* line 81, sass/_single-comments.scss */
 .like:hover, .dislike:hover {
   background-color: #0D6737;
 }
 
-/* line 85, sass/_single-comments.scss */
+/* line 86, sass/_single-comments.scss */
 .respond, .like, .dislike {
   padding: 8px 10px;
   float: left;
   height: 36px;
 }
 
-/* line 91, sass/_single-comments.scss */
+/* line 92, sass/_single-comments.scss */
 .dislike {
   border-left: 1px solid #555555;
   /*@include box-shadow(#fff 0px 0px 0px 1px);*/
