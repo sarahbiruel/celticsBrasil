@@ -7,12 +7,13 @@
 }
 
 .comment {
-  border-bottom:1px solid #999;
+  border-top:1px solid #999;
   padding:25px 0 40px;
 
-  &:last-child {
-    border:none;
+  &:first-child {
+    border-top:none;
   }
+
 }
 
 .comment-sub {
