@@ -24,7 +24,7 @@ function __construct() {
         $g_plus = apply_filters( 'widget_g_plus', $instance['g-plus'] );
         $instagram = apply_filters( 'widget_instagram', $instance['instagram'] );
         // before and after widget arguments are defined by themes
-        $title = apply_filters( 'widget_title', $instance['title'] );
+        $title = isset($instance['title']) ? apply_filters( 'widget_title', $instance['title'] ) : '';
         echo $args['before_widget'];
         echo ( ! empty( $title ) ) ? $args['before_title'] . $title . $args['after_title'] : $args['before_title'] . 'Redes Sociais' . $args['after_title'];
         echo '<ul class="social">';

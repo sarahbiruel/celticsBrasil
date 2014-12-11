@@ -23,7 +23,6 @@ add_action('init', 'modify_jquery');
 
 function scripts_styles() {
    $postfix = (defined('SCRIPT_DEBUG') && true === SCRIPT_DEBUG) ? '' : '.min';
-   $postfix = '';
     
 
     wp_enqueue_script('single_team_carousel', get_template_directory_uri() . "/assets/js/src/jquery.boutique.min.js", array('jquery'), _VERSION, true);

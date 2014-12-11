@@ -50,7 +50,7 @@ include_once (TEMPLATEPATH . '/sportspress/classes/player.php');
 			<div class="col-md-12">
 				<ul id="playersContent">
 					<?php
-                    $player = new Player(1);
+                    $player = new Player('');
                     $args = array('post_type' => 'sp_player', 'posts_per_page' => -1);
                     $featured = new WP_Query($args);
                     $i = 1;
@@ -63,8 +63,8 @@ include_once (TEMPLATEPATH . '/sportspress/classes/player.php');
 
                                 $dataNumber = $player -> getNumber() ? ' data-number="' . $player -> getNumber() . '"' : 'data-number=""';
                                 $dataName = $player -> getName() ? ' data-name="' . $player -> getName() . '"' : 'data-name=""';
-                                $dataPositionName = $position['name'] ? ' data-position="' . $position['name'] . '"' : ' data-position=""';
-                                $dataPositionAbbr = $position['description'] ? ' data-position-abbr="' . $position['description'] . '"' : ' data-position-abbr=""';
+                                $dataPositionName = isset($position['name']) ? ' data-position="' . $position['name'] . '"' : ' data-position=""';
+                                $dataPositionAbbr = isset($position['description']) ? ' data-position-abbr="' . $position['description'] . '"' : ' data-position-abbr=""';
 
                                 echo '<li class="player"', $dataNumber, $dataName, $dataPositionName, $dataPositionAbbr, '>';
                                 the_post_thumbnail();
@@ -88,7 +88,7 @@ include_once (TEMPLATEPATH . '/sportspress/classes/player.php');
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<?php 						
+						<?php
 						echo do_shortcode( '[player_details 16712]' );
 						echo do_shortcode( '[player_statistics 16712]' );
 						

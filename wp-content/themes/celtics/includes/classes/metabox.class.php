@@ -1583,7 +1583,7 @@ jQuery('#edit_<?php echo $this->_category_name; ?>_<?php echo $meta_id; ?>').cli
             $options['_class'] = $class;
             $options['_id'] = $id;
             
-            self::$_instances[$id] =& new $class($options);
+            self::$_instances[$id] = new $class($options);
         }
         return self::$_instances[$id];
     }

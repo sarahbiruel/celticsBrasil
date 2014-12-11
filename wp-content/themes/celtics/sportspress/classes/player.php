@@ -30,7 +30,10 @@ class Player {
 
     private function setPosition() {
         $term_list = wp_get_post_terms($this -> id, 'sp_position');
-        $this -> position = array('slug' => $term_list[0] -> slug, 'name' => $term_list[0] -> name, 'description' => $term_list[0] -> description);
+        if(isset($term_list[0]))
+            $this -> position = array('slug' => $term_list[0] -> slug, 'name' => $term_list[0] -> name, 'description' => $term_list[0] -> description);
+        else
+            $this -> position = array();
     }
 
     private function setData() {

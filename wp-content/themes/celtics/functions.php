@@ -26,7 +26,7 @@ include_once 'includes/custom-posts.php';
 include_once 'includes/classes/metabox.class.php';
 include_once 'includes/widgets-area.php';
 include_once 'includes/classes/widgets/widget-recent-posts.php';
-include_once 'includes/classes/shortcodes/countdown.php';
+include_once 'sportspress/classes/shortcodes/countdown.php';
 include_once 'sportspress/functions.php';
 
 /* Custom theme option by: Diego Incerti */
@@ -67,6 +67,7 @@ function strReplaceBegin($str, $prefix){
 add_action('get_the_without_link', 'get_the_without_link');
 function get_the_without_link( $id, $taxonomy) {
     $terms = get_the_terms( $id, $taxonomy );
+    
 
     if ( is_wp_error( $terms ) )
         return $terms;
@@ -83,5 +84,5 @@ function get_the_without_link( $id, $taxonomy) {
     
     $term_links = apply_filters( "term_links-$taxonomy", $term_links );
     
-    echo $before . join( $sep, $term_links ) . $after;
+    echo join( '', $term_links );
 }
