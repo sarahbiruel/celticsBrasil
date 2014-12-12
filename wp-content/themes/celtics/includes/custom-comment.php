@@ -56,13 +56,13 @@ if ( ! function_exists( 'custom_comment' ) ) :
                                             </a>
                                         </div>
                                         <div class="like">
-                                            <a href="#"><i class="icon sprite-comment-like"></i>
-                                            <span>10</span>
+                                            <a onclick="like_dislike(this, <?php echo get_comment_ID(); ?>, 'like')"><i class="icon sprite-comment-like"></i>
+                                            <span><?php echo get_likes_dislikes(get_comment_ID(), "like"); ?></span>
                                             </a>
                                         </div>
                                         <div class="dislike">
-                                            <a href="#"><i class="icon sprite-comment-dislike"></i>
-                                            <span>2</span>
+                                            <a onclick="like_dislike(this, <?php echo get_comment_ID(); ?>, 'dislike')"><i class="icon sprite-comment-dislike"></i>
+                                            <span><?php echo get_likes_dislikes(get_comment_ID(), "dislike"); ?></span>
                                             </a>
                                         </div>
                                     </div>

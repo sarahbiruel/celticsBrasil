@@ -29,6 +29,7 @@ include_once 'includes/classes/metabox.class.php';
 include_once 'includes/classes/widgets/widget-recent-posts.php';
 include_once 'sportspress/classes/shortcodes/countdown.php';
 include_once 'sportspress/functions.php';
+include_once 'includes/like-dislike.php';
 
 /* Custom theme option by: Diego Incerti */
 require_once 'includes/admin/index.php';
